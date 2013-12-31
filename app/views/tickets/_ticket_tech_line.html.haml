@@ -1,12 +1,14 @@
 %tr
-  %td= t("tickets.ticket_number")
+  %td= ticket.id
   %td
     - if ticket.stupid?
       %i.icon-beer
-  %td= t("tickets.autdor")
-  %td= t("tickets.date")
-  %td= t("tickets.category")
-  %td= t("tickets.title")
-  %td= t("tickets.status")
-  %td= t("tickets.emergency")
-  %td= t("common.actions")
+  %td= ticket.author.try(:name)
+  %td= ticket.created_at
+  %td= t("categories.#{ticket.category.try(:title)}")
+  %td= ticket.title
+  %td= t("statuses.#{ticket.status.try(:title)}")
+  %td{style: "color: ##{ticket.emergency.try(:color)}"}= t("emergencies.#{ticket.emergency.try(:title)}")
+  %td
+    = link_to ticket_path(ticket) do
+      %i.icon-eye-open
