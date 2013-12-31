@@ -1,0 +1,13 @@
+fr:
+  dashboard:
+    dashboard: "Tableau de bord"
+  tickets:
+    tickets: "Tickets"
+    my_tickets: "Mes tickets"
+    new_tickets: "Nouveaux tickets"
+    open_tickets: "Tickets ouverts"
+    solved_tickets: "Tickets résolus"
+    invalid_tickets: "Tickets invalides"
+  users:
+    sign_in: "Se connecter"
+    sign_out: "Se déconnecter"

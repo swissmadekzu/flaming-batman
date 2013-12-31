@@ -1,0 +1,10 @@
+%li
+  = link_to tickets_path do
+    %i.icon-tasks
+    = t("tickets.tickets")
+    %i.icon-caret-down
+  %ul.submenu{style: "width:250px;"}
+    %li= link_to t("tickets.new_tickets"), tech_tickets_path(filter: "new")
+    %li= link_to t("tickets.open_tickets"), tech_tickets_path(filter: "open")
+    %li= link_to t("tickets.solved_tickets"), tech_tickets_path(filter: "solved")
+    %li= link_to t("tickets.invalid_tickets"), tech_tickets_path(filter: "invalid")

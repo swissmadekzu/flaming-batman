@@ -1,0 +1,23 @@
+%nav.ink-navigation
+  %ul.menu.horizontal.green.shadowed.rounded
+    %li
+      = link_to dashboard_path do
+        %i.icon-home
+        = t("dashboard.dashboard")
+    - if signed_in?
+      - if current_user.is_tech?
+        = render partial: "shared/techie_nav"
+      - else
+        = render partial: "shared/user_nav"
+      %li.push-right
+        = link_to "#" do
+          %i.icon-user
+          = current_user.email
+          %i.icon-caret-down
+        %ul.submenu{style: "width:250px;"}
+          %li= link_to t("users.sign_out"), sign_out_path, :method => :delete
+    - else
+      %li.push-right
+        = link_to sign_in_path do
+          %i.icon-user
+          = t("users.sign_in")

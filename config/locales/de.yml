@@ -1,4 +1,4 @@
-en:
+de:
   dashboard:
     dashboard: "Dashboard"
   tickets:
@@ -9,5 +9,5 @@ en:
     solved_tickets: "Solved tickets"
     invalid_tickets: "Invalid tickets"
   users:
-    sign_in: "Sign in"
-    sign_out: "Sign out"
+    sign_in: "Anmelden"
+    sign_out: "Abmelden"
