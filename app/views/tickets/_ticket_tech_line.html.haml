@@ -1,0 +1,12 @@
+%tr
+  %td= t("tickets.ticket_number")
+  %td
+    - if ticket.stupid?
+      %i.icon-beer
+  %td= t("tickets.autdor")
+  %td= t("tickets.date")
+  %td= t("tickets.category")
+  %td= t("tickets.title")
+  %td= t("tickets.status")
+  %td= t("tickets.emergency")
+  %td= t("common.actions")

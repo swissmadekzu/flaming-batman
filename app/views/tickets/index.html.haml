@@ -1,0 +1,15 @@
+%h1= t("tickets.tickets")
+
+%table.ink-table.alternating.bordered
+  %thead
+    %tr
+      %th= t("tickets.ticket_number")
+      %th= t("tickets.treated_by")
+      %th= t("tickets.date")
+      %th= t("tickets.category")
+      %th= t("tickets.title")
+      %th= t("tickets.status")
+      %th= t("tickets.emergency")
+      %th= t("common.actions")
+  %tbody
+    = render partial: "ticket_line", collection: @tickets, as: :ticket
