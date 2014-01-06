@@ -1,0 +1,10 @@
+.control-group
+  = form.label :status_id, t("tickets.fields.status")
+  .control
+    = form.select :status_id, Status.order("id ASC").collect{|s| [t("statuses.values.#{s.title}"), s.id]}
+
+.control-group
+  %ul.control.unstyled
+    %li
+      = form.check_box :stupid, {id: "is_stupid"}, true, false
+      = label_tag "is_stupid", t("tickets.fields.stupid")

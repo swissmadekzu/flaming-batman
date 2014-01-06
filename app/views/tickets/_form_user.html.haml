@@ -1,0 +1,13 @@
+= form.hidden_field :status_id, value: @ticket.status_id.nil? ? 1 : @ticket.status_id
+
+%p.vertical-space
+  %strong
+    = t("tickets.fields.status")
+    = ":"
+  - if @ticket.status_id.nil?
+    = t("statuses.values.new")
+  - else
+    = t("statuses.values.#{@ticket.status.title}")
+
+
+= form.hidden_field :stupid, value: @ticket.stupid.nil? ? false : @ticket.stupid

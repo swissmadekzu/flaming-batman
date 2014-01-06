@@ -1,4 +1,6 @@
 fr:
+  common:
+    back: "Retour"
   dashboard:
     dashboard: "Tableau de bord"
   tickets:
@@ -8,6 +10,39 @@ fr:
     open_tickets: "Tickets ouverts"
     solved_tickets: "Tickets résolus"
     invalid_tickets: "Tickets invalides"
+    new_ticket: "Nouveau ticket"
+    fields:
+      create_ticket: "Créer le ticket"
+      title: "Titre"
+      emergency: "Degré d'urgence"
+      description: "Description"
+      category: "Catégorie"
+      status: "Statut du ticket"
+      stupid: "Requête débile ?"
+    tips:
+      title: "Veuillez indiquer un titre explicite pour le ticket."
+      emergency: "Afin de traiter plus efficacement les tickets, veuillez indiquer les raisons de l'urgence pour tous les tickets Sévères et Critiques."
+      description: "Veuillez détailler un maximum le problème."
+      category: "Ne choisissez la catégorie Autres que si aucune catégorie ne convient au problème."
   users:
     sign_in: "Se connecter"
     sign_out: "Se déconnecter"
+  emergencies:
+    values:
+      light: "Faible"
+      medium: "Moyenne"
+      severe: "Sévère"
+      critical: "Critique"
+  categories:
+    values:
+      hardware: "Matériel"
+      software: "Logiciel"
+      network: "Réseau & Connectivité"
+      settings: "Configuration & Options"
+      other: "Autres"
+  statuses:
+    values:
+      new: "Nouveau"
+      open: "Ouvert"
+      solved: "Résolu"
+      invalid: "Invalide"

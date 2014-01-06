@@ -2,7 +2,12 @@ class TicketsController < ApplicationController
   before_action :authorize
 
   def index
-
+    @tickets = case params[:filter]
+      when "new" then current_user.tickets.where(status: Status.find_by(title: "new"))
+      when "open" then current_user.tickets.where(status: Status.find_by(title: "open"))
+      when "solved" then current_user.tickets.where(status: Status.find_by(title: "solved"))
+      when "invalid" then current_user.tickets.where(status: Status.find_by(title: "invalid"))
+    end
   end
 
   def tech
@@ -12,5 +17,71 @@ class TicketsController < ApplicationController
       when "solved" then current_user.work_tickets.where(status: Status.find_by(title: "solved"))
       when "invalid" then current_user.work_tickets.where(status: Status.find_by(title: "invalid"))
     end
+  end
+
+  def show
+    if current_user.is_tech?
+      @ticket = Ticket.find(params[:id])
+    else
+      @ticket = current_user.tickets.find(params[:id])
+    end
+  end
+
+  def new
+    @ticket = current_user.tickets.new
+  end
+
+  def create
+    @ticket = current_user.tickets.new(ticket_params)
+    if @ticket.save
+      flash[:notice] = t("flash_messages.tickets.created_successfully")
+      redirect_to ticket_path(@ticket)
+    else
+      flash[:error] = t("flash_messages.tickets.error_in_creation")
+      render action: :new
+    end
+  end
+
+  def edit
+    if current_user.is_tech?
+      @ticket = Ticket.find(params[:id])
+    else
+      @ticket = current_user.tickets.find(params[:id])
+    end
+  end
+
+  def update
+    if current_user.is_tech?
+      @ticket = Ticket.find(params[:id])
+    else
+      @ticket = current_user.tickets.find(params[:id])
+    end
+    if @ticket.update_attributes(ticket_params)
+      flash[:notice] = t("flash_messages.tickets.updated_successfully")
+      redirect_to ticket_path(@ticket)
+    else
+      flash[:error] = t("flash_messages.tickets.error_in_update")
+      render action: :edit
+    end
+  end
+
+  def destroy
+    if current_user.is_tech?
+      @ticket = Ticket.find(params[:id])
+    else
+      @ticket = current_user.tickets.find(params[:id])
+    end
+    if @ticket.destroy
+      flash[:notice] = t("flash_messages.tickets.deleted_successfully")
+      redirect_to (current_user.is_tech? ? tech_tickets_path(filter: "new") : tickets_path(filter: "new"))
+    else
+      flash[:error] = t("flash_messages.tickets.error_in_delete")
+      redirect_to ticket_path(@ticket)
+    end
+  end
+
+  private
+  def ticket_params
+    params.required(:ticket).permit(:author_id, :tech_id, :title, :description, :treatment_date, :end_treatment_date, :status_id, :emergency_id, :category_id)
   end
 end
