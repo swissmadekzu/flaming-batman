@@ -11,8 +11,10 @@ fr:
     solved_tickets: "Tickets résolus"
     invalid_tickets: "Tickets invalides"
     new_ticket: "Nouveau ticket"
+    edit_ticket: "Modifier le ticket"
     fields:
       create_ticket: "Créer le ticket"
+      update_ticket: "Mettre à jour le ticket"
       title: "Titre"
       emergency: "Degré d'urgence"
       description: "Description"

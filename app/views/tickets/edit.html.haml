@@ -1,0 +1,8 @@
+%h1
+  = t("tickets.edit_ticket")
+  = "##{@ticket.id}"
+= form_for @ticket, html: {class: "ink-form"} do |form|
+  = render partial: "form", locals: {form: form}
+  %p
+    = form.submit t("tickets.fields.update_ticket"), class: "ink-button green"
+    = link_to t("common.back"), :back, class: "ink-button"

@@ -1,0 +1,31 @@
+%h1
+  = t("tickets.ticket")
+  = "##{@ticket.id}"
+%h2= @ticket.title
+
+%h3= t("tickets.general_information")
+
+%table.large-100.ink-table.bordered.vertical-space
+  %tbody
+    %tr
+      %th.large-20= t("tickets.fields.emergency")
+      %td.large-30{style: "color: ##{@ticket.emergency.color};"}= t("emergencies.values.#{@ticket.emergency.title}")
+      %th.large-20= t("tickets.fields.category")
+      %td.large-30= t("categories.values.#{@ticket.category.title}") 
+    %tr
+      %th.large-20= t("tickets.fields.status")
+      %td.large-30= t("statuses.values.#{@ticket.status.title}")
+      %th.large-20= t("tickets.fields.category")
+      %td.large-30= l(@ticket.created_at, format: "%d %B %Y, %H:%M")
+    %tr
+      %th.large-20= t("tickets.fields.treatment_date")
+      %th.large-30= l(@ticket.treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.treatment_date.nil?
+      %th.large-20= t("tickets.fields.end_treatment_date")
+      %th.large-30= l(@tickets.end_treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.end_treatment_date.nil?
+    %tr
+      %th= t("tickets.fields.description")
+      %td{colspan: "3"}= @ticket.description
+
+%h3= t("tickets.messages")
+
+%h3= t("tickets.attachments")
