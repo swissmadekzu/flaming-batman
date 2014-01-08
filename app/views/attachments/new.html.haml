@@ -1,0 +1,16 @@
+%h1
+  = t("attachments.new_attachment_for_ticket")
+  = "##{@attachment.ticket_id}"
+
+= form_for @attachment, html: {class: "ink-form"} do |form|
+
+  = form.hidden_field :ticket_id, value: @ticket.id
+
+  .control-group.required
+    = form.label :attachment, t("attachments.fields.file")
+    .control
+      .input-file= form.file_field :attachment
+
+  %p
+    = form.submit t("attachments.fields.upload_attachment"), class: "ink-button green"
+    = link_to t("common.back"), :back, class: "ink-button"

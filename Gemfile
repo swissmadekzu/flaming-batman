@@ -36,6 +36,8 @@ end
 gem 'http_accept_language'
 gem 'rails-i18n', '~> 4.0.0'
 
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
