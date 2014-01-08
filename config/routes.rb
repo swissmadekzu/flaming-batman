@@ -6,7 +6,14 @@ Tickets::Application.routes.draw do
     collection do
       get 'tech'
     end
+
+    member do
+      post "treat"
+      post "end_treatment"
+    end
   end
+  resources :messages
+  resources :attachments
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

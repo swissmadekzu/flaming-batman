@@ -1,0 +1,8 @@
+%table.large-100.ink-table.bordered.vertical-space
+  %tbody
+    %tr
+      %th.large-25= l(message.created_at, format: "%d %B %Y, %H:%M")
+      %th.large-75= message.title
+    %tr
+      %th= message.author.name
+      %td= simple_format message.body

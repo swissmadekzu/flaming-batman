@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :authorize
+  before_action :require_tech, only: [:treat, :end_treatment]
 
   def index
     @tickets = case params[:filter]
@@ -14,8 +15,8 @@ class TicketsController < ApplicationController
     @tickets = case params[:filter]
       when "new" then Ticket.where(status: Status.find_by(title: "new"))
       when "open" then current_user.work_tickets.where(status: Status.find_by(title: "open"))
-      when "solved" then current_user.work_tickets.where(status: Status.find_by(title: "solved"))
-      when "invalid" then current_user.work_tickets.where(status: Status.find_by(title: "invalid"))
+      when "solved" then Ticket.where(status: Status.find_by(title: "solved"))
+      when "invalid" then Ticket.where(status: Status.find_by(title: "invalid"))
     end
   end
 
@@ -80,8 +81,24 @@ class TicketsController < ApplicationController
     end
   end
 
+  def treat
+    @ticket = Ticket.find(params[:id])
+    @ticket.update_attributes(status: Status.find_by(title: "open"), treatment_date: DateTime.now.utc, tech_id: current_user.id)
+    redirect_to ticket_path(@ticket)
+  end
+
+  def end_treatment
+    @ticket = Ticket.find(params[:id])
+    @ticket.update_attributes(status: Status.find_by(title: "solved"), end_treatment_date: DateTime.now.utc)
+    redirect_to ticket_path(@ticket)
+  end
+
   private
   def ticket_params
     params.required(:ticket).permit(:author_id, :tech_id, :title, :description, :treatment_date, :end_treatment_date, :status_id, :emergency_id, :category_id)
+  end
+
+  def require_tech
+    redirect_to ticket_path(@ticket) unless current_user.is_tech?
   end
 end

@@ -1,0 +1,26 @@
+%h1
+  = t("messages.new_message_for_ticket")
+  = "##{@message.ticket_id}"
+
+= form_for @message, html: {class: "ink-form"} do |form|
+
+  .control-group
+    = label_tag "author", t("messages.fields.from")
+    .control
+      = text_field_tag "author", current_user.name, disabled: true
+      = form.hidden_field :author_id, value: current_user.id
+      = form.hidden_field :ticket_id, value: @ticket.id
+
+  .control-group.required
+    = form.label :title, t("messages.fields.title")
+    .control
+      = form.text_field :title
+
+  .control-group.required
+    = form.label :body, t("messages.fields.body")
+    .control
+      = form.text_area :body, rows: 8
+
+  %p
+    = form.submit t("messages.fields.create_message"), class: "ink-button green"
+    = link_to t("common.back"), :back, class: "ink-button"

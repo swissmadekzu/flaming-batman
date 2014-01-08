@@ -33,6 +33,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'http_accept_language'
 gem 'rails-i18n', '~> 4.0.0'
 
 # Use ActiveModel has_secure_password

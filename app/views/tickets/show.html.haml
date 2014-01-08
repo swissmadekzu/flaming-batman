@@ -1,7 +1,24 @@
-%h1
-  = t("tickets.ticket")
-  = "##{@ticket.id}"
-%h2= @ticket.title
+.ink-row
+  %h1.large-70
+    = t("tickets.ticket")
+    = "##{@ticket.id}"
+
+  .large-30.content-right
+    = link_to edit_ticket_path(@ticket), class: "ink-button" do
+      %i.icon-pencil
+      = t("tickets.edit_ticket")
+    - if current_user.is_tech?
+      - if @ticket.status.title == "new"
+        = link_to treat_ticket_path(@ticket), method: :post, class: "ink-button green" do
+          %i.icon-cogs
+          = t("tickets.treat_ticket")
+      - elsif @ticket.status.title == "open"
+        = link_to end_treatment_ticket_path(@ticket), method: :post, class: "ink-button green" do
+          %i.icon-ok-sign
+          = t("tickets.close_ticket")
+
+.ink-row
+  %h2.large-100= @ticket.title
 
 %h3= t("tickets.general_information")
 
@@ -15,17 +32,32 @@
     %tr
       %th.large-20= t("tickets.fields.status")
       %td.large-30= t("statuses.values.#{@ticket.status.title}")
-      %th.large-20= t("tickets.fields.category")
+      %th.large-20= t("tickets.fields.date")
       %td.large-30= l(@ticket.created_at, format: "%d %B %Y, %H:%M")
     %tr
       %th.large-20= t("tickets.fields.treatment_date")
-      %th.large-30= l(@ticket.treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.treatment_date.nil?
+      %td.large-30= l(@ticket.treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.treatment_date.nil?
       %th.large-20= t("tickets.fields.end_treatment_date")
-      %th.large-30= l(@tickets.end_treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.end_treatment_date.nil?
+      %td.large-30= l(@ticket.end_treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.end_treatment_date.nil?
     %tr
       %th= t("tickets.fields.description")
-      %td{colspan: "3"}= @ticket.description
+      %td{colspan: "3"}= simple_format @ticket.description
 
-%h3= t("tickets.messages")
+.ink-row
+  %h3.large-70= t("tickets.messages")
 
-%h3= t("tickets.attachments")
+  .push-right.content-right.large-30
+    = link_to new_message_path(ticket_id: @ticket.id), class: "ink-button" do
+      %i.icon-envelope
+      = t("messages.new_message")
+
+= render partial: "messages/message_view", collection: @ticket.messages.order("created_at ASC"), as: :message
+
+.ink-row
+
+  %h3.large-70.push-left= t("tickets.attachments")
+
+  .push-right.content-right.large-30
+    = link_to new_attachment_path(ticket_id: @ticket.id), class: "ink-button" do
+      %i.icon-paper-clip
+      = t("attachments.new_attachment")
