@@ -84,9 +84,9 @@ fr:
       create_ticket: Créer le ticket
       date: Créé le
       description: Description
-      emergency: Degré d'urgence
+      emergency: Urgence
       end_treatment_date: Fin de traitement
-      status: Statut du ticket
+      status: Statut
       stupid: Requête débile ?
       ticket_number: '#'
       title: Titre

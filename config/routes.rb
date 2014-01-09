@@ -1,7 +1,6 @@
 Tickets::Application.routes.draw do
 
-  get 'dashboard' => 'dashboard#index'
-  root to: "dashboard#index"
+  root to: "tickets#index"
   resources :tickets do
     collection do
       get 'tech'

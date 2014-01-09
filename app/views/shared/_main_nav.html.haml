@@ -1,9 +1,5 @@
 %nav.ink-navigation
   %ul.menu.horizontal.green.shadowed.rounded
-    %li
-      = link_to dashboard_path do
-        %i.icon-home
-        = t("dashboard.dashboard")
     - if signed_in?
       - if current_user.is_tech?
         = render partial: "shared/techie_nav"
