@@ -9,11 +9,25 @@
   %body
     .ink-grid
       .column-group
-        .large-100
-          = render partial: "shared/main_nav"
+        .ink-row.vertical-space
+          %p.large-20= link_to image_tag("mms.gif"), root_path
+          %h4.large-50= t("main_title")
+          %p.large-30.content-right
+            = t("it_service")
 
+
+        %div{style: "clear:both;"}
+        .ink-row
+          .large-100.vertical-space
+            = render partial: "shared/main_nav"
+        .ink-row
           #flash
             - flash.each do |key, value|
-              %div{class: "flash #{key}"}= value
-          = yield
+              %div{class: "ink-alert basic #{key == "error" ? "error" : "success"}"}
+                %strong= "#{t("common.alerts.#{key}")} :"
+                = value
 
+        = yield
+        .ink-row
+          .large-50.push-center.content-center
+            = render partial: "shared/footer"

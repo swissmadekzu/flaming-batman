@@ -1,5 +1,5 @@
 ---
-de:
+it:
   attachments:
     are_you_sure_delete: ''
     fields:
@@ -26,7 +26,7 @@ de:
     raise_a_bug_in_app: ''
     upload: ''
   dashboard:
-    dashboard: Dashboard
+    dashboard: ''
   emergencies:
     values:
       critical: ''
@@ -90,15 +90,15 @@ de:
       treatment_date: ''
       update_ticket: ''
     general_information: ''
-    invalid_tickets: Invalid tickets
+    invalid_tickets: ''
     messages: ''
-    my_tickets: My tickets
+    my_tickets: ''
     new_ticket: ''
-    new_tickets: New tickets
-    open_tickets: Open tickets
-    solved_tickets: Solved tickets
+    new_tickets: ''
+    open_tickets: ''
+    solved_tickets: ''
     ticket: ''
-    tickets: Tickets
+    tickets: ''
     tips:
       category: ''
       description: ''
@@ -106,5 +106,5 @@ de:
       title: ''
     treat_ticket: ''
   users:
-    sign_in: Anmelden
-    sign_out: Abmelden
+    sign_in: ''
+    sign_out: ''

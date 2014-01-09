@@ -4,7 +4,7 @@
     - if ticket.stupid?
       %i.icon-beer
   %td= ticket.author.try(:name)
-  %td= ticket.created_at
+  %td= l(ticket.created_at, format: "%d %B %Y, %H:%M")
   %td= t("categories.values.#{ticket.category.try(:title)}")
   %td= ticket.title
   %td= t("statuses.values.#{ticket.status.try(:title)}")

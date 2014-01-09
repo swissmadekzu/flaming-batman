@@ -1,0 +1,12 @@
+%h1= t(".title")
+
+%p= t(".description")
+
+
+= form_for :password, :url => passwords_path, html: {class: "ink-form"} do |form|
+  .control-group.required
+    = form.label :email
+    .control= form.text_field :email, :type => 'email' 
+
+  %p
+    = form.submit t("helpers.submit.password.submit"), class: "ink-button green"

@@ -1,13 +1,110 @@
+---
 en:
+  attachments:
+    are_you_sure_delete: ''
+    fields:
+      date: ''
+      file: ''
+      filename: ''
+      size: ''
+      upload_attachment: ''
+    new_attachment: ''
+    new_attachment_for_ticket: ''
+  categories:
+    values:
+      hardware: ''
+      network: ''
+      other: ''
+      settings: ''
+      software: ''
+  common:
+    actions: ''
+    back: ''
+    delete: ''
+    download: ''
+    edit: ''
+    raise_a_bug_in_app: ''
+    upload: ''
   dashboard:
-    dashboard: "Dashboard"
+    dashboard: Dashboard
+  emergencies:
+    values:
+      critical: ''
+      light: ''
+      medium: ''
+      severe: ''
+  flash_messages:
+    attachments:
+      created_successfully: ''
+      deleted_successfully: ''
+      error_creation: ''
+      error_deletion: ''
+    common:
+      not_proprietary: ''
+    messages:
+      created_successfully: ''
+      deleted_successfully: ''
+      error_creation: ''
+      error_deletion: ''
+    tickets:
+      created_successfully: ''
+      deleted_successfully: ''
+      error_in_creation: ''
+      error_in_delete: ''
+      error_in_update: ''
+      not_authorized: ''
+      updated_successfully: ''
+  main_title: ''
+  messages:
+    fields:
+      body: ''
+      create_message: ''
+      from: ''
+      title: ''
+    new_message: ''
+    new_message_for_ticket: ''
+  position: ''
+  statuses:
+    values:
+      invalid: ''
+      new: ''
+      open: ''
+      solved: ''
   tickets:
-    tickets: "Tickets"
-    my_tickets: "My tickets"
-    new_tickets: "New tickets"
-    open_tickets: "Open tickets"
-    solved_tickets: "Solved tickets"
-    invalid_tickets: "Invalid tickets"
+    attachments: ''
+    close_ticket: ''
+    edit_ticket: ''
+    fields:
+      author: ''
+      category: ''
+      create_ticket: ''
+      date: ''
+      description: ''
+      emergency: ''
+      end_treatment_date: ''
+      status: ''
+      stupid: ''
+      ticket_number: ''
+      title: ''
+      treated_by: ''
+      treatment_date: ''
+      update_ticket: ''
+    general_information: ''
+    invalid_tickets: Invalid tickets
+    messages: ''
+    my_tickets: My tickets
+    new_ticket: ''
+    new_tickets: New tickets
+    open_tickets: Open tickets
+    solved_tickets: Solved tickets
+    ticket: ''
+    tickets: Tickets
+    tips:
+      category: ''
+      description: ''
+      emergency: ''
+      title: ''
+    treat_ticket: ''
   users:
-    sign_in: "Sign in"
-    sign_out: "Sign out"
+    sign_in: Sign in
+    sign_out: Sign out

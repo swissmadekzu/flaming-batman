@@ -34,9 +34,13 @@ group :doc do
 end
 
 gem 'http_accept_language'
-gem 'rails-i18n', '~> 4.0.0'
 
+# i18n Gems
+gem 'rails-i18n', '~> 4.0.0'
+gem 'i18n-tasks', '~> 0.2.10'
 gem 'carrierwave'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

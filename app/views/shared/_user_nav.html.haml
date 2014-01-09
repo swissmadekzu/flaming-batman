@@ -1,4 +1,8 @@
 %li
+  = link_to new_ticket_path do
+    %i.icon-plus
+    = t("tickets.new_ticket")
+%li
   = link_to tickets_path do
     %i.icon-tasks
     = t("tickets.my_tickets")

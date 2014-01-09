@@ -1,9 +1,9 @@
 .ink-row
-  %h1.large-70
+  %h1.large-60
     = t("tickets.ticket")
     = "##{@ticket.id}"
 
-  .large-30.content-right
+  .large-40.content-right
     = link_to edit_ticket_path(@ticket), class: "ink-button" do
       %i.icon-pencil
       = t("tickets.edit_ticket")

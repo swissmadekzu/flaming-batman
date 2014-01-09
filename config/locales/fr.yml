@@ -1,66 +1,192 @@
+---
 fr:
-  common:
-    back: "Retour"
-    actions: "Actions"
-    edit: "Editer"
-    delete: "Supprimer"
-    download: "Télécharger"
-    upload: "Téléverser"
-  dashboard:
-    dashboard: "Tableau de bord"
-  tickets:
-    tickets: "Tickets"
-    my_tickets: "Mes tickets"
-    new_tickets: "Nouveaux tickets"
-    open_tickets: "Tickets ouverts"
-    solved_tickets: "Tickets résolus"
-    invalid_tickets: "Tickets invalides"
-    new_ticket: "Nouveau ticket"
-    edit_ticket: "Modifier le ticket"
-    general_information: "Informations générales"
-    messages: "Messages"
-    attachments: "Fichiers joints"
+  attachments:
+    are_you_sure_delete: Êtes-vous sûr de vouloir supprimer ce fichier ?
     fields:
-      create_ticket: "Créer le ticket"
-      update_ticket: "Mettre à jour le ticket"
-      title: "Titre"
-      ticket_number: "#"
-      treated_by: "Traité par"
-      treatment_date: "Début de traitement"
-      end_treatment_date: "Fin de traitement"
-      date: "Créé le"
-      emergency: "Degré d'urgence"
-      description: "Description"
-      category: "Catégorie"
-      status: "Statut du ticket"
-      stupid: "Requête débile ?"
-      author: "Auteur"
-    tips:
-      title: "Veuillez indiquer un titre explicite pour le ticket."
-      emergency: "Afin de traiter plus efficacement les tickets, veuillez indiquer les raisons de l'urgence pour tous les tickets Sévères et Critiques."
-      description: "Veuillez détailler un maximum le problème."
-      category: "Ne choisissez la catégorie Autres que si aucune catégorie ne convient au problème."
-  users:
-    sign_in: "Se connecter"
-    sign_out: "Se déconnecter"
-  emergencies:
-    values:
-      light: "Faible"
-      medium: "Moyenne"
-      severe: "Sévère"
-      critical: "Critique"
+      date: "Date"
+      file: "Fichier"
+      filename: "Nom du fichier"
+      size: "Taille"
+      upload_attachment: "Mettre en ligne"
+    new_attachment: "Nouvelle pièce jointe"
+    new_attachment_for_ticket: "Nouvelle pièce jointe pour le ticket"
   categories:
     values:
       hardware: "Matériel"
-      software: "Logiciel"
       network: "Réseau & Connectivité"
-      settings: "Configuration & Options"
       other: "Autres"
+      settings: "Configuration & Options"
+      software: "Logiciel"
+  common:
+    actions: Actions
+    back: Retour
+    delete: Supprimer
+    download: Télécharger
+    edit: Editer
+    raise_a_bug_in_app: 'Signaler un bug'
+    upload: Téléverser
+    alerts:
+      notice: "Information"
+      error: "Erreur"
+  dashboard:
+    dashboard: Tableau de bord
+  emergencies:
+    values:
+      critical: Critique
+      light: Faible
+      medium: Moyenne
+      severe: Sévère
+  flash_messages:
+    attachments:
+      created_successfully: 'La pièce jointe a été mise en ligne avec succès.'
+      deleted_successfully: 'La pièce jointe a été supprimée avec succès.'
+      error_creation: "Une erreur s'est produite lors de la mise en ligne de la pièce jointe."
+      error_deletion: "Une erreur s'est produite lors de la suppression de la pièce jointe."
+    common:
+      not_proprietary: ''
+    messages:
+      created_successfully: 'Le message a été créé avec succès.'
+      deleted_successfully: 'Le message a été supprimé avec succès.'
+      error_creation: "Une erreur s'est produite lors de la création du message."
+      error_deletion: "Une erreur s'est produite lors de la suppression du message."
+    tickets:
+      created_successfully: 'Le ticket a été créé avec succès.'
+      deleted_successfully: 'Le ticket a été supprimé avec succès.'
+      error_in_creation: "Une erreur s'est produite lors de la création du ticket."
+      error_in_delete: "Une erreur s'est produite lors de la suppression du ticket."
+      error_in_update: "Une erreur s'est produite lors de la mise à jour du ticket."
+      not_authorized: "Vous n'êtes pas autorisé à consulter ce ticket."
+      updated_successfully: "Le ticket a été mis à jour avec succès."
+  it_service: "Section IT"
+  main_title: Gestion des problèmes informatiques
+  messages:
+    fields:
+      body: 'Message'
+      create_message: 'Créer le message'
+      from: 'De'
+      title: 'Titre'
+    new_message: 'Nouveau message'
+    new_message_for_ticket: 'Nouveau message pour le ticket'
+  position: ''
   statuses:
     values:
-      new: "Nouveau"
-      open: "Ouvert"
-      solved: "Résolu"
-      invalid: "Invalide"
-  attachments:
-    are_you_sure_delete: "Êtes-vous sûr de vouloir supprimer ce fichier ?"
+      invalid: Invalide
+      new: Nouveau
+      open: Ouvert
+      solved: Résolu
+  tickets:
+    attachments: Fichiers joints
+    close_ticket: 'Fermer le ticket'
+    edit_ticket: Modifier le ticket
+    fields:
+      author: Auteur
+      category: Catégorie
+      create_ticket: Créer le ticket
+      date: Créé le
+      description: Description
+      emergency: Degré d'urgence
+      end_treatment_date: Fin de traitement
+      status: Statut du ticket
+      stupid: Requête débile ?
+      ticket_number: '#'
+      title: Titre
+      treated_by: Traité par
+      treatment_date: Début de traitement
+      update_ticket: Mettre à jour le ticket
+    general_information: Informations générales
+    invalid_tickets: Tickets invalides
+    messages: Messages
+    my_tickets: Mes tickets
+    new_ticket: Nouveau ticket
+    new_tickets: Nouveaux tickets
+    open_tickets: Tickets ouverts
+    solved_tickets: Tickets résolus
+    ticket: 'Ticket'
+    tickets: Tickets
+    tips:
+      category: Ne choisissez la catégorie Autres que si aucune catégorie ne convient au problème.
+      description: Veuillez détailler un maximum le problème.
+      emergency: "Afin de traiter plus efficacement les tickets, veuillez indiquer les raisons de l'urgence pour tous les tickets Sévères et Critiques."
+      title: Veuillez indiquer un titre explicite pour le ticket.
+    treat_ticket: 'Ouvrir le ticket'
+  clearance_mailer:
+    change_password:
+      opening:
+        "Quelqu'un, sans doute vous, a demandé que nous envoyions un lien pour changer votre mot de passe :"
+      closing:
+        "Si vous n'avez pas demandé cela, ignorez cet email. Votre mot de passe n'a pas été changé."
+  flashes:
+    failure_when_forbidden:
+      "Vérifiez l'URL ou essayez d'envoyer ce formulaire à nouveau."
+    failure_after_update:
+      "Le mot de passe ne peut pas être vide."
+    failure_after_create:
+      'Mauvais email et/ou mot de passe. Essayez-vous de créer un nouveau compte ? <a href="%{sign_up_path}">Créer un compte</a>'
+  helpers:
+    submit:
+      password:
+        submit:
+          'Réinitialiser le mot de passe'
+      password_reset:
+        submit:
+          'Retenir ce mot de passe'
+      session:
+        submit:
+          'Se connecter'
+      user:
+        create:
+          'Créer un compte'
+    label:
+      password:
+        email:
+          'Adresse email'
+      password_reset:
+        password:
+          'Choisissez votre mot de passe'
+  passwords:
+    create:
+      description:
+        "Vous allez recevoir un email dans les prochaines minutes. Il contient les instructions pour changer votre mot de passe."
+    edit:
+      description:
+        "Votre mot de passe a été réinitialisé. Choisissez un nouveau mot de passe ci-dessous."
+      title:
+        "Changer mon mot de passe"
+    new:
+      description:
+        "Veuillez entrer votre adresse email pour recevoir un lien de réinitialisation de votre mot de passe."
+      title:
+        "Réinitialiser mon mot de passe"
+  sessions:
+    form:
+      forgot_password:
+        "J'ai oublié mon mot de passe."
+      sign_up:
+        "Créer un compte"
+    new:
+      title:
+        "Se connecter"
+  users:
+    sign_in: Se connecter
+    sign_out: Se déconnecter
+    forgot_password: "J'ai oublié mon mot de passe."
+    new:
+      title:
+        "S'inscrire"
+      sign_in:
+        'Se connecter'
+  mailers:
+    tickets:
+      new_ticket: "[Service IT] Nouveau ticket"
+      ticket_created: "Votre ticket #%{ticket_id} a bien été créé."
+      ticket_information: "Votre ticket portant le titre <em>%{title}</em> a été créé avec succès. Il sera traité dans les plus brefs délais. Vous pouvez consulter l'avancée du traitement en suivant le lien ci-dessous."
+      greetings: "Bien cordialement,<br />Service IT"
+      ticket_closed_information: "Votre ticket portant le titre <em>%{title}</em> a été marqué comme résolu. Les détails de la résolution figurent dans le ticket consultable à l'adresse ci-dessous."
+      ticket_closed: "Votre ticket #%{ticket_id} a été résolu."
+      ticket_close: "[Service IT] Résolution de votre ticket #%{ticket_id}"
+      ticket_opened_information: "Votre ticket portant le titre <em>%{title}</em> est en cours de traitement. Les détails et l'avancée du traitement figurent dans le ticket consultable à l'adresse ci-dessous."
+      ticket_opened: "Votre ticket #%{ticket_id} est en cours de traitement."
+      ticket_open: "[Service IT] Traitement de votre ticket #%{ticket_id}"
+      new_message: "Nouveau message pour le ticket"
+      message_created: "Un nouveau message est disponible pour le ticket #%{ticket_id}"
+      ticket_message_information: "Un nouveau message a été ajouté à votre ticket portant le titre <em>%{title}</em>. Vous pouvez le consulter à l'adresse ci-dessous."

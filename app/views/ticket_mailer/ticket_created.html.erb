@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t("mailers.tickets.ticket_created", ticket_id: @ticket.id) %></h1>
+    <p><%= t("mailers.tickets.ticket_information", title: @ticket.title) %></p>
+    <p><%= link_to ticket_url(@ticket), ticket_url(@ticket) %></p>
+    <p><%= t("mailers.tickets.greetings") %></p>
+  </body>
+</html>

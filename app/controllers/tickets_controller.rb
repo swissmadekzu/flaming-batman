@@ -8,6 +8,7 @@ class TicketsController < ApplicationController
       when "open" then current_user.tickets.where(status: Status.find_by(title: "open"))
       when "solved" then current_user.tickets.where(status: Status.find_by(title: "solved"))
       when "invalid" then current_user.tickets.where(status: Status.find_by(title: "invalid"))
+      else current_user.tickets.order("status_id ASC")
     end
   end
 
@@ -17,6 +18,7 @@ class TicketsController < ApplicationController
       when "open" then current_user.work_tickets.where(status: Status.find_by(title: "open"))
       when "solved" then Ticket.where(status: Status.find_by(title: "solved"))
       when "invalid" then Ticket.where(status: Status.find_by(title: "invalid"))
+      else Ticket.order("status_id ASC")
     end
   end
 
@@ -36,6 +38,7 @@ class TicketsController < ApplicationController
     @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
       flash[:notice] = t("flash_messages.tickets.created_successfully")
+      TicketMailer.ticket_created(@ticket).deliver
       redirect_to ticket_path(@ticket)
     else
       flash[:error] = t("flash_messages.tickets.error_in_creation")
@@ -84,12 +87,14 @@ class TicketsController < ApplicationController
   def treat
     @ticket = Ticket.find(params[:id])
     @ticket.update_attributes(status: Status.find_by(title: "open"), treatment_date: DateTime.now.utc, tech_id: current_user.id)
+    TicketMailer.ticket_open(@ticket).deliver
     redirect_to ticket_path(@ticket)
   end
 
   def end_treatment
     @ticket = Ticket.find(params[:id])
     @ticket.update_attributes(status: Status.find_by(title: "solved"), end_treatment_date: DateTime.now.utc)
+    TicketMailer.ticket_close(@ticket).deliver
     redirect_to ticket_path(@ticket)
   end
 
