@@ -15,11 +15,11 @@ class TicketMailer < ActionMailer::Base
 
   def ticket_open(ticket)
     @ticket = ticket
-    mail(to: @ticket.author.email, subject: t("mailers.tickets.ticket_open", ticket_id: @ticket.id)
+    mail(to: @ticket.author.email, subject: t("mailers.tickets.ticket_open"), ticket_id: @ticket.id)
   end
 
   def ticket_closed(ticket)
     @ticket = ticket
-    mail(to: @ticket.author.email, subject: t("mailers.tickets.ticket_close", ticket_id: @ticket.id)
+    mail(to: @ticket.author.email, subject: t("mailers.tickets.ticket_close"), ticket_id: @ticket.id)
   end
 end
