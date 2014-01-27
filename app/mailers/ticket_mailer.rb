@@ -1,5 +1,5 @@
 class TicketMailer < ActionMailer::Base
-  default from: "it.support@militarymegastore.ch"
+  default from: "MMS IT Support <it.support@militarymegastore.ch>"
 
   def ticket_created(ticket)
     @ticket = ticket
