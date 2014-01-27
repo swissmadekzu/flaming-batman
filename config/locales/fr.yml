@@ -10,6 +10,8 @@ fr:
       upload_attachment: "Mettre en ligne"
     new_attachment: "Nouvelle pièce jointe"
     new_attachment_for_ticket: "Nouvelle pièce jointe pour le ticket"
+  authentication:
+    title: "Veuillez vous identifier"
   categories:
     values:
       hardware: "Matériel"
@@ -170,6 +172,9 @@ fr:
     sign_in: Se connecter
     sign_out: Se déconnecter
     forgot_password: "J'ai oublié mon mot de passe."
+    fields:
+      email: "Adresse E-Mail"
+      password: "Mot de passe"
     new:
       title:
         "S'inscrire"
