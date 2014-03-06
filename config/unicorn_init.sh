@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+# ticketmanager - Rails App Init script
+#
+# chkconfig: - 85 15
+#
 set -e
 # Example init script, this can be used with nginx, too,
 # since nginx and unicorn accept the same signals
@@ -26,7 +31,7 @@ oldsig () {
 case $action in
 start)
 	sig 0 && echo >&2 "Already running" && exit 0
-	su -c "$CMD" - vagrant
+	su -c "$CMD" - itsupport
 	;;
 stop)
 	sig QUIT && exit 0
@@ -39,7 +44,7 @@ force-stop)
 restart|reload)
 	sig HUP && echo reloaded OK && exit 0
 	echo >&2 "Couldn't reload, starting '$CMD' instead"
-	su -c "$CMD" - vagrant
+	su -c "$CMD" - itsupport
 	;;
 upgrade)
 	if sig USR2 && sleep 2 && sig 0 && oldsig QUIT
@@ -59,7 +64,7 @@ upgrade)
 		exit 0
 	fi
 	echo >&2 "Couldn't upgrade, starting '$CMD' instead"
-	su -c "$CMD" - vagrant
+	su -c "$CMD" - itsupport
 	;;
 reopen-logs)
 	sig USR1

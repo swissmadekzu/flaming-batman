@@ -94,7 +94,7 @@ class TicketsController < ApplicationController
   def end_treatment
     @ticket = Ticket.find(params[:id])
     @ticket.update_attributes(status: Status.find_by(title: "solved"), end_treatment_date: DateTime.now.utc)
-    TicketMailer.ticket_close(@ticket).deliver
+    TicketMailer.ticket_closed(@ticket).deliver
     redirect_to ticket_path(@ticket)
   end
 
