@@ -1,110 +1,197 @@
 ---
 en:
   attachments:
-    are_you_sure_delete: ''
+    are_you_sure_delete: Are you sure you want to delete this attachment?
     fields:
-      date: ''
-      file: ''
-      filename: ''
-      size: ''
-      upload_attachment: ''
-    new_attachment: ''
-    new_attachment_for_ticket: ''
+      date: "Date"
+      file: "File"
+      filename: "File name"
+      size: "Size"
+      upload_attachment: "Upload"
+    new_attachment: "New attachment"
+    new_attachment_for_ticket: "New attachment for file"
+  authentication:
+    title: "Please log in"
   categories:
     values:
-      hardware: ''
-      network: ''
-      other: ''
-      settings: ''
-      software: ''
+      hardware: "Hardware"
+      network: "Network and connectivity"
+      other: "Other"
+      settings: "Configuration & Options"
+      software: "Software"
   common:
-    actions: ''
-    back: ''
-    delete: ''
-    download: ''
-    edit: ''
-    raise_a_bug_in_app: ''
-    upload: ''
+    actions: Actions
+    back: Back
+    delete: Delete
+    download: Download
+    edit: Edit
+    raise_a_bug_in_app: 'Raise a bug'
+    upload: Upload
+    alerts:
+      notice: "Information"
+      error: "Error"
   dashboard:
     dashboard: Dashboard
   emergencies:
     values:
-      critical: ''
-      light: ''
-      medium: ''
-      severe: ''
+      critical: Critical
+      light: Light
+      medium: Medium
+      severe: Severe
   flash_messages:
     attachments:
-      created_successfully: ''
-      deleted_successfully: ''
-      error_creation: ''
-      error_deletion: ''
+      created_successfully: 'The attachment has been uploaded successfully.'
+      deleted_successfully: 'The attachment has been deleted successfully.'
+      error_creation: "An error occurred when uploading the attachment."
+      error_deletion: "An error occurred when deleting the attachment."
     common:
       not_proprietary: ''
     messages:
-      created_successfully: ''
-      deleted_successfully: ''
-      error_creation: ''
-      error_deletion: ''
+      created_successfully: 'The message has been created successfully.'
+      deleted_successfully: 'The message has been deleted successfully.'
+      error_creation: "An error occurred when creating the message."
+      error_deletion: "An error occurred when deleting the message."
     tickets:
-      created_successfully: ''
-      deleted_successfully: ''
-      error_in_creation: ''
-      error_in_delete: ''
-      error_in_update: ''
-      not_authorized: ''
-      updated_successfully: ''
-  main_title: ''
+      created_successfully: 'The ticket has been created successfully.'
+      deleted_successfully: 'The ticket has been deleted successfully.'
+      error_in_creation: "An error occurred when creating the ticket."
+      error_in_delete: "An error occurred when deleting the ticket."
+      error_in_update: "An error occurred when updating the ticket."
+      not_authorized: "You are not authorized to view this ticket."
+      updated_successfully: "The ticket has been updated successfully."
+  it_service: "Section IT"
+  main_title: IT Issues Management
   messages:
     fields:
-      body: ''
-      create_message: ''
-      from: ''
-      title: ''
-    new_message: ''
-    new_message_for_ticket: ''
+      body: 'Message'
+      create_message: 'Create the message'
+      from: 'From'
+      title: 'Title'
+    new_message: 'New message'
+    new_message_for_ticket: 'New message for ticket'
   position: ''
   statuses:
     values:
-      invalid: ''
-      new: ''
-      open: ''
-      solved: ''
+      invalid: Invalid
+      new: New
+      open: Open
+      solved: Solved
   tickets:
-    attachments: ''
-    close_ticket: ''
-    edit_ticket: ''
+    attachments: Attachments
+    close_ticket: 'Close the ticket'
+    edit_ticket: Edit the ticket
     fields:
-      author: ''
-      category: ''
-      create_ticket: ''
-      date: ''
-      description: ''
-      emergency: ''
-      end_treatment_date: ''
-      status: ''
-      stupid: ''
-      ticket_number: ''
-      title: ''
-      treated_by: ''
-      treatment_date: ''
-      update_ticket: ''
-    general_information: ''
+      author: Author
+      category: Category
+      create_ticket: Create the ticket
+      date: Created on
+      description: Description
+      emergency: Emergency
+      end_treatment_date: End of treatment
+      status: Status
+      stupid: Stupid request?
+      ticket_number: '#'
+      title: Title
+      treated_by: Treated by
+      treatment_date: Start of treatment
+      update_ticket: Update the ticket
+    general_information: General information
     invalid_tickets: Invalid tickets
-    messages: ''
+    messages: Messages
     my_tickets: My tickets
-    new_ticket: ''
+    new_ticket: New ticket
     new_tickets: New tickets
     open_tickets: Open tickets
     solved_tickets: Solved tickets
-    ticket: ''
+    ticket: 'Ticket'
     tickets: Tickets
     tips:
-      category: ''
-      description: ''
-      emergency: ''
-      title: ''
-    treat_ticket: ''
+      category: Please only choose the Other category if no one fits your problem.
+      description: Please give us a maximum of details in order to solve the problem efficiently.
+      emergency: "In order to treat the issues more efficiently, please provide a reason for Severe and Critical emergencies."
+      title: Please provide an explicit title for the ticket.
+    treat_ticket: 'Open the ticket'
+  clearance_mailer:
+    change_password:
+      opening:
+        'Someone, hopefully you, requested we send you a link to change your password:'
+      closing:
+        "If you didn't request this, ignore this email. Your password has not been changed."
+  flashes:
+    failure_when_forbidden:
+      "Please check the URL or try to send the form again."
+    failure_after_update:
+      "The password can't be empty."
+    failure_after_create:
+      'Bad email and/or password. Do you try to create a new account? <a href="%{sign_up_path}">Sign up</a>'
+  helpers:
+    submit:
+      password:
+        submit:
+          'Reset the password'
+      password_reset:
+        submit:
+          'Save this password'
+      session:
+        submit:
+          'Sign in'
+      user:
+        create:
+          'Sign up'
+    label:
+      password:
+        email:
+          'Email address'
+      password_reset:
+        password:
+          'Choose your password'
+  passwords:
+    create:
+      description:
+        "You will receive an email within the next few minutes. It contains instructions for changing your password."
+    edit:
+      description:
+        "Your password has been reset. Choose a new password below."
+      title:
+        "Change your password"
+    new:
+      description:
+        "To be emailed a link to reset your password, please enter your email address."
+      title:
+        "Reset your password"
+  sessions:
+    form:
+      forgot_password:
+        "Forgot password?"
+      sign_up:
+        "Sign up"
+    new:
+      title:
+        "Sign in"
   users:
     sign_in: Sign in
     sign_out: Sign out
+    forgot_password: "Forgot password?"
+    fields:
+      email: "Email address"
+      password: "Password"
+    new:
+      title:
+        "Sign up"
+      sign_in:
+        'Sign in'
+  mailers:
+    tickets:
+      new_ticket: "[IT Support] New ticket"
+      ticket_created: "Your ticket #%{ticket_id} has been created successfully."
+      ticket_information: "Your ticket entitled <em>%{title}</em> has been created successfully. It will be treated as soon as possible. You can check the progress of the treatment by clicking the following link."
+      greetings: "Yours sincerely,<br />IT Support"
+      ticket_closed_information: "Your ticket entitled <em>%{title}</em> has been marked as solved. Resolution details can be found at the ticket's page accessible with following link."
+      ticket_closed: "Your ticket #%{ticket_id} has been solved."
+      ticket_close: "[IT Support] Your ticket #%{ticket_id} has been solved"
+      ticket_opened_information: "Your ticket entitled <em>%{title}</em> is currently treated. Treatment progression and resolution details can be found at the ticket's page accessible with following link."
+      ticket_opened: "Your ticket #%{ticket_id} is currently treated."
+      ticket_open: "[IT Support] Your ticket #%{ticket_id} is currently treated."
+      new_message: "New message for ticket"
+      message_created: "A new message has been received for your ticket #%{ticket_id}"
+      ticket_message_information: "A new message has been added to your ticket entitled <em>%{title}</em>. It can be found at the ticket's page accessible with following link."
