@@ -1,0 +1,34 @@
+%h1 Tableau de bord du superviseur
+
+%h2 Statistiques globales
+
+%table.ink-table.alternating.bordered
+  %thead
+    %tr
+      %th Nombre de tickets
+      %th Nouveaux tickets
+      %th Tickets ouverts
+      %th Tickets résolus
+      %th Tickets invalides
+  %tbody
+    %tr
+      %td= Ticket.all.count
+      %td= Ticket.where(status: Status.find_by(title: "new")).count
+      %td= Ticket.where(status: Status.find_by(title: "open")).count
+      %td= Ticket.where(status: Status.find_by(title: "solved")).count
+      %td= Ticket.where(status: Status.find_by(title: "invalid")).count
+      
+%h2 Liste des tickets
+
+%table.ink-table.alternating.bordered
+  %thead
+    %tr
+      %th Numéro et titre
+      %th Urgence
+      %th Créé le
+      %th Ouvert le
+      %th Résolu le
+      %th Actions
+  %tbody
+    = render partial: "supervisor_ticket", collection: @tickets, as: :ticket
+    

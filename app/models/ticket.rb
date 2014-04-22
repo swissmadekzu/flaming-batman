@@ -7,4 +7,8 @@ class Ticket < ActiveRecord::Base
 
   has_many :messages
   has_many :attachments
+  
+  def full_name
+    "#{id} - {title}"
+  end
 end

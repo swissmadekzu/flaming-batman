@@ -5,6 +5,7 @@
         = render partial: "shared/techie_nav"
       - else
         = render partial: "shared/user_nav"
+      = render partial: "shared/supervisor_nav" if (current_user.is_tech? or current_user.is_supervisor?)
       %li.push-right
         = link_to "#" do
           %i.icon-user

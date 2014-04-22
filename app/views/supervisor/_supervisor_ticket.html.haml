@@ -1,0 +1,9 @@
+%tr
+  %td= ticket.full_name
+  %td{style: "color: ##{ticket.emergency.try(:color)}"}= t("emergencies.values.#{ticket.emergency.try(:title)}") 
+  %td= ticket.created_at
+  %td= ticket.treatment_date unless ticket.treatment_date.nil?
+  %td= ticket.end_treatment_date unless ticket.end_treatment_date.nil?
+  %td
+    = link_to supervise_ticket_path(ticket.id) do
+      %i.icon-eye-open
