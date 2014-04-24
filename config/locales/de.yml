@@ -1,110 +1,197 @@
 ---
 de:
   attachments:
-    are_you_sure_delete: ''
+    are_you_sure_delete: 'Sind Sie sicher dass Sie die Datei löschen wollen?'
     fields:
-      date: ''
-      file: ''
-      filename: ''
-      size: ''
-      upload_attachment: ''
-    new_attachment: ''
-    new_attachment_for_ticket: ''
+      date: 'Datum'
+      file: 'Datei'
+      filename: 'Datei Namen'
+      size: 'Grösse'
+      upload_attachment: 'Ins Internet stellen'
+    new_attachment: 'Neuer Anhang'
+    new_attachment_for_ticket: 'Neuer Anhang für den Ticket'
+  authentication:
+    title: "Bitte melden Sie sich an"
   categories:
     values:
-      hardware: ''
-      network: ''
-      other: ''
-      settings: ''
-      software: ''
+      hardware: "Material"
+      network: "Netzwerk und Konnektivität"
+      other: "Andere"
+      settings: "Konfiguration und Optionen"
+      software: "Software"
   common:
-    actions: ''
-    back: ''
-    delete: ''
-    download: ''
-    edit: ''
-    raise_a_bug_in_app: ''
-    upload: ''
+    actions: Aktion
+    back: Zurück
+    delete: Löschen
+    download: Herunterladen
+    edit: Bearbeiten
+    raise_a_bug_in_app: 'Fehler melden'
+    upload: Laden
+    alerts:
+      notice: "Informationen"
+      error: "Fehler"
   dashboard:
-    dashboard: Dashboard
+    dashboard: Instrumententafel
   emergencies:
     values:
-      critical: ''
-      light: ''
-      medium: ''
-      severe: ''
+      critical: Kritisch
+      light: Zuverlässig
+      medium: Mittelwert
+      severe: Schwer
   flash_messages:
     attachments:
-      created_successfully: ''
-      deleted_successfully: ''
-      error_creation: ''
-      error_deletion: ''
+      created_successfully: 'Die Datei wurde erfolgreich hochgeladen.'
+      deleted_successfully: 'Die Datei wurde erfolgreich gelöscht.'
+      error_creation: "Ein Fehler wurde beim hochladen der Datei aufgetreten."
+      error_deletion: "Ein Fehler wurde beim löschen der Datei aufgetreten."
     common:
-      not_proprietary: ''
+      not_proprietary: 'Sie sind nicht der Besitzer dieses Ticket'
     messages:
-      created_successfully: ''
-      deleted_successfully: ''
-      error_creation: ''
-      error_deletion: ''
+      created_successfully: 'Die Nachricht wurde erfolgreich erstellt.'
+      deleted_successfully: 'Die Nachricht wurde erfolgreich gelöscht.'
+      error_creation: "Beim Erstellen der Nachricht ist ein Fehler aufgetreten."
+      error_deletion: "Beim Löschen der Nachricht ist ein Fehler aufgetreten."
     tickets:
-      created_successfully: ''
-      deleted_successfully: ''
-      error_in_creation: ''
-      error_in_delete: ''
-      error_in_update: ''
-      not_authorized: ''
-      updated_successfully: ''
-  main_title: ''
+      created_successfully: 'Das Ticket wurde erfolgreich erstellt.'
+      deleted_successfully: 'Das Ticket wurde erfolgreich gelöscht.'
+      error_in_creation: "Beim Erstellen des Tickets ist ein Fehler aufgetreten."
+      error_in_delete: "Beim Löschen des Tickets ist ein Fehler aufgetreten."
+      error_in_update: "Während der Aktualisierung des Tickets ist ein Fehler aufgetreten."
+      not_authorized: "Sie sind nicht befugt dieses Ticket anzusehen."
+      updated_successfully: "Das Ticket wurde erfolgreich aktualisiert."
+  it_service: "IT Abteilung"
+  main_title: Management von IT-Problemen
   messages:
     fields:
-      body: ''
-      create_message: ''
-      from: ''
-      title: ''
-    new_message: ''
-    new_message_for_ticket: ''
+      body: 'Nachricht'
+      create_message: 'Eine Nachricht erstellen'
+      from: 'Von'
+      title: 'Titel'
+    new_message: 'Neue Nachricht'
+    new_message_for_ticket: 'Neue Nachricht für das Ticket'
   position: ''
   statuses:
     values:
-      invalid: ''
-      new: ''
-      open: ''
-      solved: ''
+      invalid: Ungultig
+      new: Neu
+      open: Offen
+      solved: Gelöst
   tickets:
-    attachments: ''
-    close_ticket: ''
-    edit_ticket: ''
+    attachments: Anbeie Dateien
+    close_ticket: 'Den Ticket schliessen'
+    edit_ticket: Den Ticket ändern
     fields:
-      author: ''
-      category: ''
-      create_ticket: ''
-      date: ''
-      description: ''
-      emergency: ''
-      end_treatment_date: ''
-      status: ''
-      stupid: ''
-      ticket_number: ''
-      title: ''
-      treated_by: ''
-      treatment_date: ''
-      update_ticket: ''
-    general_information: ''
-    invalid_tickets: Invalid tickets
-    messages: ''
-    my_tickets: My tickets
-    new_ticket: ''
-    new_tickets: New tickets
-    open_tickets: Open tickets
-    solved_tickets: Solved tickets
-    ticket: ''
+      author: Autor
+      category: Kategorie
+      create_ticket: Ticket erstellen
+      date: Erstellt den
+      description: Beschreibung
+      emergency: Notfall
+      end_treatment_date: Verarbeitungs Ende
+      status: Status
+      stupid: Blöde frage ?
+      ticket_number: '#'
+      title: Titel
+      treated_by: Verarbaitet von
+      treatment_date: Verarbeitungs Anfang
+      update_ticket: Den Ticket aktualisieren
+    general_information: Allgemeine Informationen
+    invalid_tickets: Ungültige Tickets
+    messages: Nachrichten
+    my_tickets: Meine Tickets
+    new_ticket: Neues Ticket
+    new_tickets: Neue Tickets
+    open_tickets: Offene Tickets
+    solved_tickets: Gelöste Tickets
+    ticket: 'Ticket'
     tickets: Tickets
     tips:
-      category: ''
-      description: ''
-      emergency: ''
-      title: ''
-    treat_ticket: ''
+      category: Die Kategorie nicht wählen, wenn keine andre Kategorie für das Problem ereignet sein sollte.
+      description: Bitte beschreiben Sie so viel wie mögliche Problemen.
+      emergency: "Für eine effektivere Umgang mit den Tickets, geben Sie bitte die Gründe für die Dringlichkeit für alle Schwere und Kritisch Tickets"
+      title: Bitte geben Sie einen aussagekräftigen Titel für den Ticket.
+    treat_ticket: 'Den Ticket öffnen'
+  clearance_mailer:
+    change_password:
+      opening:
+        "Jemand, Sie wahrscheinlich, hat gefragt ob wir ein Link für die Passwort Änderung schicken."
+      closing:
+        "Wenn Sie es nicht angefordert haben, ignorieren Sie diese E-Mail. Ihr Passwort wurde nicht geändert"
+  flashes:
+    failure_when_forbidden:
+      "Überprüfen Sie die URL und senden Sie dieses Formular erneut."
+    failure_after_update:
+      "Das Passwort kann nicht leer sein."
+    failure_after_create:
+      'Falsche email und/oder Passwort. Versuchen Sie ein neues Konto zu erstellen <a href="%{sign_up_path}">Neues Konto</a>'
+  helpers:
+    submit:
+      password:
+        submit:
+          'Das Passwort reinitialisieren'
+      password_reset:
+        submit:
+          'Den Passwort merken'
+      session:
+        submit:
+          'Sich verbinden'
+      user:
+        create:
+          'Ein Konto erstellen'
+    label:
+      password:
+        email:
+          'E-Mail Adresse'
+      password_reset:
+        password:
+          'Den Passwort auswählen'
+  passwords:
+    create:
+      description:
+        "Sie werden in wenigen Minuten eine E-Mail erhalten. Es wird die Anweisungen enthält für die Passwort änderung."
+    edit:
+      description:
+        "Ihr Passwort wurde reinitialisiert. Bitte wählen Sie ein neues Passwort."
+      title:
+        "Den Passwort ändern"
+    new:
+      description:
+        "Bitte geben Sie Ihre E-Mail-Adresse an, Sie werden einen Link mit den Passworts reinitialisierung"
+      title:
+        "Reinitialisiert mein Passwort"
+  sessions:
+    form:
+      forgot_password:
+        "Ich habe mein Passwort vergessen"
+      sign_up:
+        "Ein Konto erstellen"
+    new:
+      title:
+        "Sich verbinden"
   users:
-    sign_in: Anmelden
-    sign_out: Abmelden
+    sign_in: Einloggen
+    sign_out: Ausloggen
+    forgot_password: "Ich habe mein Passwort vergessen."
+    fields:
+      email: "E-Mail Adresse"
+      password: "Passwort"
+    new:
+      title:
+        "Sich anmelden"
+      sign_in:
+        'Sich verbinden'
+  mailers:
+    tickets:
+      new_ticket: "[IT Abteilung] Neuen Ticket"
+      ticket_created: "Ihr Ticket  #%{ticket_id} wurde hergestellt."
+      ticket_information: "Ihr Ticket mit den Titel <em>%{title}</em> wurde erfolgreich hergestellt. Wir werden in kürzester Zeit des Tickets behandeln. Sie können den Verlauf auf diesen Link hier unten verfolgen."
+      greetings: "Mit freundliche Grüsse,<br />IT Abteilung"
+      ticket_closed_information: "Ihr Ticket mit dem Titel <em>%{title}</em> wurde als gelöst markiert. Die Einzelheiten können Sie unter diese Adresse hier unten sichtbar."
+      ticket_closed: "Ihr Ticket #%{ticket_id} wurde gelöst."
+      ticket_close: "[IT Abteilung] Auflösung Ihres Tickets #%{ticket_id}"
+      ticket_opened_information: "Ihr Ticket mit den Titel <em>%{title}</em> ist im Behandlung. Die Einzelheiten und die Fortsetzung des Tickets können Sie unter diese Adresse hier unten sichtbar."
+      ticket_opened: "Ihr Ticket #%{ticket_id} ist im Behandlung."
+      ticket_open: "[IT Abteilung] Behandlung Ihres Tickets #%{ticket_id}"
+      new_message: "Neue Nachrichte für den Ticket"
+      message_created: "Eine neue Nachricht ist verfügbar für den Ticket #%{ticket_id}"
+      ticket_message_information: "Eine zusätzliche neue Nachricht mit den Titel <em>%{title}</em>. wurde zugefügt. Die Einzelheiten können Sie unter diese Adresse hier unten sichtbar."
