@@ -1,0 +1,67 @@
+.ink-row
+  %h1.large-60
+    = t("tickets.ticket")
+    = "##{@ticket.id}"
+
+  .large-40.content-right
+    = link_to :back, class: "ink-button" do
+      %i.icon-back
+      = t("common.back")
+
+.ink-row
+  %h2.large-100= @ticket.title
+
+%h3= t("tickets.general_information")
+
+%table.large-100.ink-table.bordered.vertical-space
+  %tbody
+    %tr
+      %th.large-20= t("tickets.fields.emergency")
+      %td.large-30{style: "color: ##{@ticket.emergency.color};"}= t("emergencies.values.#{@ticket.emergency.title}")
+      %th.large-20= t("tickets.fields.category")
+      %td.large-30= t("categories.values.#{@ticket.category.title}") 
+    %tr
+      %th.large-20= t("tickets.fields.status")
+      %td.large-30= t("statuses.values.#{@ticket.status.title}")
+      %th.large-20= t("tickets.fields.date")
+      %td.large-30= l(@ticket.created_at, format: "%d %B %Y, %H:%M")
+    %tr
+      %th.large-20= t("tickets.fields.treatment_date")
+      %td.large-30= l(@ticket.treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.treatment_date.nil?
+      %th.large-20= t("tickets.fields.end_treatment_date")
+      %td.large-30= l(@ticket.end_treatment_date, format: "%d %B %Y, %H:%M") unless @ticket.end_treatment_date.nil?
+    %tr
+      %th= t("tickets.fields.description")
+      %td{colspan: "3"}= simple_format @ticket.description
+
+.ink-row
+  %h3.large-70= t("tickets.messages")
+
+  .content-right.large-30
+    = link_to new_message_path(ticket_id: @ticket.id), class: "ink-button" do
+      %i.icon-envelope
+      = t("messages.new_message")
+
+.ink-row
+  = render partial: "messages/message_view", collection: @ticket.messages.order("created_at ASC"), as: :message
+
+.ink-row
+
+  %h3.large-70= t("tickets.attachments")
+
+  .content-right.large-30
+    = link_to new_attachment_path(ticket_id: @ticket.id), class: "ink-button" do
+      %i.icon-paper-clip
+      = t("attachments.new_attachment")
+
+.ink-row
+  
+  %table.large-100.ink-table.bordered.vertical-space
+    %thead
+      %tr
+        %th.large-50= t("attachments.fields.filename")
+        %th.large-10= t("attachments.fields.size")
+        %th.large-20= t("attachments.fields.date")
+        %th= t("common.actions")
+    %tbody
+      = render partial: "attachments/attachment_line", collection: @ticket.attachments, as: :attachment
