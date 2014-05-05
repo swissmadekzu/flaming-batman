@@ -1,15 +1,28 @@
-%h1= t("tickets.tickets")
+.breadcrumbs
+  %ol.breadcrumb
+    %li.active
+      = t("tickets.my_tickets")
 
-%table.ink-table.alternating.bordered
-  %thead
-    %tr
-      %th{style: "width:2.5%;"}= t("tickets.fields.ticket_number")
-      %th{style: "width:16%;"}= t("tickets.fields.treated_by")
-      %th{style: "width:19%;"}= t("tickets.fields.date")
-      %th= t("tickets.fields.category")
-      %th{style: "width:30%;"}= t("tickets.fields.title")
-      %th= t("tickets.fields.status")
-      %th= t("tickets.fields.emergency")
-      %th= t("common.actions")
-  %tbody
-    = render partial: "ticket_line", collection: @tickets, as: :ticket
+.submenu
+  %h1= t("tickets.tickets")
+  
+.main
+  .row
+    .col-md-12
+      %section.tile
+        .tile-header
+          %h1= t("tickets.title_#{params[:filter]}")
+        .tile-body.nopadding
+          %table.table.table-bordered.table-striped
+            %thead
+              %tr
+                %th{style: "width:2.5%;"}= t("tickets.fields.ticket_number")
+                %th{style: "width:16%;"}= t("tickets.fields.treated_by")
+                %th{style: "width:19%;"}= t("tickets.fields.date")
+                %th= t("tickets.fields.category")
+                %th{style: "width:30%;"}= t("tickets.fields.title")
+                %th= t("tickets.fields.status")
+                %th= t("tickets.fields.emergency")
+                %th= t("common.actions")
+            %tbody
+              = render partial: "ticket_line", collection: @tickets, as: :ticket  

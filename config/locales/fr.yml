@@ -110,6 +110,10 @@ fr:
       description: Veuillez détailler un maximum le problème.
       emergency: "Afin de traiter plus efficacement les tickets, veuillez indiquer les raisons de l'urgence pour tous les tickets Sévères et Critiques."
       title: Veuillez indiquer un titre explicite pour le ticket.
+    title_new: Nouveaux tickets
+    title_open: Tickets ouverts
+    title_solved: Tickets résolus
+    title_invalid: Tickets invalides
     treat_ticket: 'Ouvrir le ticket'
   clearance_mailer:
     change_password:
