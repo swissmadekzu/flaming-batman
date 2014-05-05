@@ -1,5 +1,10 @@
 Tickets::Application.routes.draw do
 
+  resource  :session, :controller => 'sessions', :only => [:new, :create, :destroy]
+  
+  get '/sign_in' => 'sessions#new'
+  match '/sign_out' => 'sessions#destroy', :via => :delete 
+  
   root to: "tickets#index"
   resources :tickets do
     collection do
@@ -13,6 +18,8 @@ Tickets::Application.routes.draw do
   end
   resources :messages
   resources :attachments
+  
+  
   
   get 'supervisor' => "supervisor#index", as: :supervisor_dashboard
   get 'supervisor/:id' => "supervisor#supervise", as: :supervise_ticket

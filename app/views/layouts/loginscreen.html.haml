@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    %title 
+      TicketManager
+      = APP_VERSION
+    = stylesheet_link_tag    "loginscreen", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", media: "all"
+    = javascript_include_tag "http://code.jquery.com/jquery.js"
+    = javascript_include_tag "https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"
+    = javascript_include_tag "loginscreen", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body.green-scheme
+    .mask#loader
+    #wrap
+      .row
+        #content.col-md-12.full-page.login
+          = yield
+    

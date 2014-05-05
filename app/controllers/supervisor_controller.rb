@@ -11,6 +11,6 @@ class SupervisorController < ApplicationController
   
   private
   def check_supervisor
-    return false unless (current.user.is_supervisor? or current_user.is_tech?)
+    return false unless (current_user.is_supervisor? or current_user.is_tech?)
   end
 end

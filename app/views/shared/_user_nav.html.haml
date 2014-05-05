@@ -6,7 +6,7 @@
   = link_to tickets_path do
     %i.icon-tasks
     = t("tickets.my_tickets")
-    %i.icon-caret-down
+    
   %ul.submenu{style: "width:250px;"}
     %li= link_to t("tickets.new_tickets"), tickets_path(filter: "new")
     %li= link_to t("tickets.open_tickets"), tickets_path(filter: "open")

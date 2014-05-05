@@ -1,0 +1,10 @@
+%li.dropdown
+  = link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do
+    %i.fa.fa-tasks
+    = t("tickets.tickets")
+    %i.fa.fa-caret-down
+  %ul.dropdown-menu.wide.arrow.green.nopadding
+    %li= link_to t("tickets.new_tickets"), tech_tickets_path(filter: "new")
+    %li= link_to t("tickets.open_tickets"), tech_tickets_path(filter: "open")
+    %li= link_to t("tickets.solved_tickets"), tech_tickets_path(filter: "solved")
+    %li= link_to t("tickets.invalid_tickets"), tech_tickets_path(filter: "invalid")

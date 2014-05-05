@@ -13,10 +13,10 @@
   %tbody
     %tr
       %td= Ticket.all.count
-      %td= Ticket.where(status: Status.find_by(title: "new")).count
-      %td= Ticket.where(status: Status.find_by(title: "open")).count
-      %td= Ticket.where(status: Status.find_by(title: "solved")).count
-      %td= Ticket.where(status: Status.find_by(title: "invalid")).count
+      %td= Ticket.where(status_id: Status.find_by(title: "new")).count
+      %td= Ticket.where(status_id: Status.find_by(title: "open")).count
+      %td= Ticket.where(status_id: Status.find_by(title: "solved")).count
+      %td= Ticket.where(status_id: Status.find_by(title: "invalid")).count
       
 %h2 Liste des tickets
 

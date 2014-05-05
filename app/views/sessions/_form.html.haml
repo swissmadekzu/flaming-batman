@@ -1,17 +1,14 @@
-= form_for :session, :url => session_path, html: {class: "ink-form"} do |form|
-  .control-group.required
-    = form.label :email, t("users.fields.email")
-    .control
-      = form.text_field :email, :type => 'email'
-
-
-  .control-group.required
-    = form.label :password, t("users.fields.password")
-    .control
-      = form.password_field :password
-
-  %p
-    = form.submit t("users.sign_in"), class: "ink-button green"
-
-  %p
-    = link_to t('users.forgot_password'), new_password_path
+= form_for :session, :url => session_path, html: {id: "form-signin", class: "form-signin"} do |form|
+  %section
+    .input-group
+      = form.text_field :email, :type => 'email', placeholder: t("users.fields.email"), class: "form-control"
+      .input-group-addon
+        %i.fa.fa-user
+    .input-group
+      = form.password_field :password, placeholder: t("users.fields.password"), class: "form-control"
+      .input-group-addon
+        %i.fa.fa-key
+  %section.new-acc
+    = form.submit t("users.sign_in"), class: "btn btn-greensea"
+  %section.controls
+    = link_to t('users.forgot_password'), new_password_path, class: "pull-right"

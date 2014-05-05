@@ -1,23 +1,26 @@
 class TicketsController < ApplicationController
+  
+  layout "minoral"
+  
   before_action :authorize
   before_action :require_tech, only: [:treat, :end_treatment]
 
   def index
     @tickets = case params[:filter]
-      when "new" then current_user.tickets.where(status: Status.find_by(title: "new"))
-      when "open" then current_user.tickets.where(status: Status.find_by(title: "open"))
-      when "solved" then current_user.tickets.where(status: Status.find_by(title: "solved"))
-      when "invalid" then current_user.tickets.where(status: Status.find_by(title: "invalid"))
+      when "new" then current_user.tickets.where(status_id: Status.find_by(title: "new"))
+      when "open" then current_user.tickets.where(status_id: Status.find_by(title: "open"))
+      when "solved" then current_user.tickets.where(status_id: Status.find_by(title: "solved"))
+      when "invalid" then current_user.tickets.where(status_id: Status.find_by(title: "invalid"))
       else current_user.tickets.order("status_id ASC")
     end
   end
 
   def tech
     @tickets = case params[:filter]
-      when "new" then Ticket.where(status: Status.find_by(title: "new"))
-      when "open" then current_user.work_tickets.where(status: Status.find_by(title: "open"))
-      when "solved" then Ticket.where(status: Status.find_by(title: "solved"))
-      when "invalid" then Ticket.where(status: Status.find_by(title: "invalid"))
+      when "new" then Ticket.where(status_id: Status.find_by(title: "new"))
+      when "open" then current_user.work_tickets.where(status_id: Status.find_by(title: "open"))
+      when "solved" then Ticket.where(status_id: Status.find_by(title: "solved"))
+      when "invalid" then Ticket.where(status_id: Status.find_by(title: "invalid"))
       else Ticket.order("status_id ASC")
     end
   end
