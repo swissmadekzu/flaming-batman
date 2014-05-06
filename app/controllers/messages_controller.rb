@@ -1,5 +1,7 @@
 class MessagesController < TicketsDependencyController
 
+  layout "minoral"
+  
   before_action :authorize_from_ticket, only: :new
   before_action :authorize_from_message, only: :destroy
 

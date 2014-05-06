@@ -4,7 +4,7 @@
     %title 
       TicketManager
       = APP_VERSION
-    = stylesheet_link_tag    "loginscreen", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "themetwozero", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag    "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", media: "all"
     = javascript_include_tag "http://code.jquery.com/jquery.js"
     = javascript_include_tag "https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"
@@ -17,3 +17,4 @@
         = render partial: "shared/minoral/main_navigation"
         #content.col-md-12
           = yield
+          = render partial: "shared/footer"

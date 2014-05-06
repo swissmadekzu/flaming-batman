@@ -1,7 +1,7 @@
 .control-group
   = form.label :status_id, t("tickets.fields.status")
   .control
-    = form.select :status_id, Status.order("id ASC").collect{|s| [t("statuses.values.#{s.title}"), s.id]}
+    = form.select :status_id, Status.order("id ASC").collect{|s| [t("statuses.values.#{s.title}"), s.id]}, {}, {:class => "form-control chosen-select"}
 
 .control-group
   %ul.control.unstyled

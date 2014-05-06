@@ -1,4 +1,7 @@
 class SupervisorController < ApplicationController
+  
+  layout "minoral"
+  
   before_action :check_supervisor
   
   def index

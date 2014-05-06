@@ -1,26 +1,33 @@
-%h1
-  = t("messages.new_message_for_ticket")
-  = "##{@message.ticket_id}"
+.breadcrumbs
+  %ol.breadcrumb
+    %li= link_to t("tickets.my_tickets"), tickets_path(filter: "new")
+    %li= link_to "[##{@ticket.id}] #{@ticket.title}", ticket_path(@ticket.id)
+    %li.active
+      = t("messages.new_message")
 
-= form_for @message, html: {class: "ink-form"} do |form|
-
-  .control-group
-    = label_tag "author", t("messages.fields.from")
-    .control
-      = text_field_tag "author", current_user.name, disabled: true
-      = form.hidden_field :author_id, value: current_user.id
-      = form.hidden_field :ticket_id, value: @ticket.id
-
-  .control-group.required
-    = form.label :title, t("messages.fields.title")
-    .control
-      = form.text_field :title
-
-  .control-group.required
-    = form.label :body, t("messages.fields.body")
-    .control
-      = form.text_area :body, rows: 8
-
-  %p
-    = form.submit t("messages.fields.create_message"), class: "ink-button green"
-    = link_to t("common.back"), :back, class: "ink-button"
+.main
+  .row
+    .col-md-12
+      %section.tile
+        .tile-header
+          %h1= t("messages.new_message")
+        .tile-body
+          = form_for @message, html: {class: "form-horizontal"} do |form|
+            .form-group
+              = label_tag "author", t("messages.fields.from"), class: "col-sm-2 control-label"
+              .col-sm-8
+                = text_field_tag "author", current_user.name, disabled: true, class: "form-control"
+                = form.hidden_field :author_id, value: current_user.id
+                = form.hidden_field :ticket_id, value: @ticket.id
+            .form-group
+              = form.label :body, t("messages.fields.title"), class: "col-sm-2 control-label"
+              .col-sm-8
+                = form.text_field :title, class: "form-control"
+            .form-group
+              = form.label :body, t("messages.fields.body"), class: "col-sm-2 control-label"
+              .col-sm-8
+                = form.text_area :body, rows: 8, class: "form-control"
+            .form-group.form-footer
+              .col-sm-offset-2.col-sm-10
+                = form.submit t("messages.fields.create_message"), class: "btn btn-greensea"
+                = link_to t("common.back"), :back, class: "btn btn-default"

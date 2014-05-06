@@ -1,5 +1,7 @@
 class AttachmentsController < TicketsDependencyController
 
+  layout "minoral"
+  
   before_action :authorize_from_ticket, only: :new
 
   def new

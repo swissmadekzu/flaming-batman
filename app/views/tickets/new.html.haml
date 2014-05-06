@@ -1,7 +1,21 @@
-%h1= t("tickets.new_ticket")
+.breadcrumbs
+  %ol.breadcrumb
+    %li= link_to t("tickets.my_tickets"), :back
+    %li.active
+      = t("tickets.new_ticket")
 
-= form_for @ticket, html: {class: "ink-form"} do |form|
-  = render partial: "form", locals: {form: form}
-  %p
-    = form.submit t("tickets.fields.create_ticket"), class: "ink-button green"
-    = link_to t("common.back"), :back, class: "ink-button"
+.main
+  .row
+    .col-md-12
+      %section.tile
+        .tile-header
+          %h1= t("tickets.new_ticket")
+        .tile-body
+          = form_for @ticket, html: {class: "form-horizontal"} do |form|
+            = render partial: "form", locals: {form: form}
+            .form-group.form-footer
+              .col-sm-offset-2.col-sm-10
+                = form.submit t("tickets.fields.create_ticket"), class: "btn btn-greensea"
+                = link_to t("common.back"), :back, class: "btn btn-default"
+
+  

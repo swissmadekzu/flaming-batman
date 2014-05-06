@@ -1,16 +1,29 @@
-%h1
-  = t("attachments.new_attachment_for_ticket")
-  = "##{@attachment.ticket_id}"
+.breadcrumbs
+  %ol.breadcrumb
+    %li= link_to t("tickets.my_tickets"), tickets_path(filter: "new")
+    %li= link_to "[##{@ticket.id}] #{@ticket.title}", ticket_path(@ticket.id)
+    %li.active
+      = t("attachments.new_attachment")
 
-= form_for @attachment, html: {class: "ink-form"} do |form|
-
-  = form.hidden_field :ticket_id, value: @ticket.id
-
-  .control-group.required
-    = form.label :attachment, t("attachments.fields.file")
-    .control
-      .input-file= form.file_field :attachment
-
-  %p
-    = form.submit t("attachments.fields.upload_attachment"), class: "ink-button green"
-    = link_to t("common.back"), :back, class: "ink-button"
+.main
+  .row
+    .col-md-12
+      %section.tile
+        .tile-header
+          %h1= t("attachments.new_attachment")
+        .tile-body
+          = form_for @attachment, html: {class: "form-horizontal"} do |form|
+            = form.hidden_field :ticket_id, value: @ticket.id
+            .form-group
+              = form.label :attachment, t("attachments.fields.file"), class: "col-md-2 control-label"
+              .col-md-8
+                .input-group
+                  %span.input-group-btn
+                    %span.btn.btn-file
+                      = t("common.browse")
+                      = form.file_field :attachment
+                    = text_field_tag nil, nil, readonly: true, class: "form-control"
+            .form-group.form-footer
+              .col-sm-offset-2.col-sm-10
+                = form.submit t("attachments.fields.upload_attachment"), class: "btn btn-greensea"
+                = link_to t("common.back"), :back, class: "btn btn-default"

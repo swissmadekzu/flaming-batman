@@ -1,26 +1,26 @@
-.control-group.required
-  = form.label :title, t("tickets.fields.title")
-  .control
-    = form.text_field :title
-  %p.tip= t("tickets.tips.title")
+.form-group
+  = form.label :title, t("tickets.fields.title"), class: "col-sm-2 control-label"
+  .col-sm-8
+    = form.text_field :title, class: "form-control"
+    %span.help-block= t("tickets.tips.title")
 
-.control-group.required
-  = form.label :emergency_id, t("tickets.fields.emergency")
-  .control
-    = form.select :emergency_id, Emergency.order("id ASC").collect{|e| [t("emergencies.values.#{e.title}"), e.id]}
-  %p.tip= t("tickets.tips.emergency")
+.form-group
+  = form.label :emergency_id, t("tickets.fields.emergency"), class: "col-sm-2 control-label"
+  .col-sm-8
+    = form.select :emergency_id, Emergency.order("id ASC").collect{|e| [t("emergencies.values.#{e.title}"), e.id]}, {}, {:class => "form-control chosen-select"}
+    %span.help-block= t("tickets.tips.emergency")
 
-.control-group.required
-  = form.label :description, t("tickets.fields.description")
-  .control
-    = form.text_area :description, rows: 6
-  %p.tip= t("tickets.tips.description")
+.form-group
+  = form.label :description, t("tickets.fields.description"), class: "col-sm-2 control-label"
+  .col-sm-8
+    = form.text_area :description, rows: 6, class: "form-control"
+    %span.help-block= t("tickets.tips.description")
 
-.control-group
-  = form.label :category_id, t("tickets.fields.category")
-  .control
-    = form.select :category_id, Category.order("id ASC").collect{|c| [t("categories.values.#{c.title}"), c.id]}
-  %p.tip= t("tickets.tips.category")
+.form-group
+  = form.label :category_id, t("tickets.fields.category"), class: "col-sm-2 control-label"
+  .col-sm-8
+    = form.select :category_id, Category.order("id ASC").collect{|c| [t("categories.values.#{c.title}"), c.id]}, {}, {:class => "form-control chosen-select"}
+    %span.help-block= t("tickets.tips.category")
 
 - if current_user.is_tech?
   = render partial: "form_tech", locals: {form: form}

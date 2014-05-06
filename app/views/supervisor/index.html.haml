@@ -1,34 +1,55 @@
-%h1 Tableau de bord du superviseur
+.breadcrumbs
+  %ol.breadcrumb
+    %li.active
+      = "Superviseur"
 
-%h2 Statistiques globales
-
-%table.ink-table.alternating.bordered
-  %thead
-    %tr
-      %th Nombre de tickets
-      %th Nouveaux tickets
-      %th Tickets ouverts
-      %th Tickets résolus
-      %th Tickets invalides
-  %tbody
-    %tr
-      %td= Ticket.all.count
-      %td= Ticket.where(status_id: Status.find_by(title: "new")).count
-      %td= Ticket.where(status_id: Status.find_by(title: "open")).count
-      %td= Ticket.where(status_id: Status.find_by(title: "solved")).count
-      %td= Ticket.where(status_id: Status.find_by(title: "invalid")).count
-      
-%h2 Liste des tickets
-
-%table.ink-table.alternating.bordered
-  %thead
-    %tr
-      %th Numéro et titre
-      %th Urgence
-      %th Créé le
-      %th Ouvert le
-      %th Résolu le
-      %th Actions
-  %tbody
-    = render partial: "supervisor_ticket", collection: @tickets, as: :ticket
-    
+.main
+  .row
+    .col-md-12
+      .tile
+        .tile-header
+          %h1 Statistiques globales
+        .tile-body
+          .row
+            .col-md-3
+              .panel.panel-cyan
+                .panel-heading
+                  %h3.panel-title Nouveaux tickets
+                .panel-body
+                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "new")).count
+            .col-md-3
+              .panel.panel-orange
+                .panel-heading
+                  %h3.panel-title Tickets ouverts
+                .panel-body
+                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "open")).count
+            .col-md-3
+              .panel.panel-green
+                .panel-heading
+                  %h3.panel-title Tickets résolus
+                .panel-body
+                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "solved")).count
+            .col-md-3
+              .panel.panel-red
+                .panel-heading
+                  %h3.panel-title Tickets invalides
+                .panel-body
+                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "invalid")).count
+  .row
+    .col-md-12
+      .tile
+        .tile-header
+          %h1 Liste des tickets
+        .tile-body
+          .row
+            %table.table.table-bordered.table-striped
+              %thead
+                %tr
+                  %th.col-md-4 Numéro et titre
+                  %th Urgence
+                  %th Statut
+                  %th.col-md-2 Créé le
+                  %th.col-md-2 Ouvert le
+                  %th.col-md-2 Résolu le
+              %tbody
+                = render partial: "supervisor_ticket", collection: @tickets, as: :ticket
