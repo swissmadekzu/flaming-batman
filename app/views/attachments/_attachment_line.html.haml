@@ -3,9 +3,7 @@
   %td= number_to_human_size(attachment.attachment.file.size)
   %td= l(attachment.created_at, format: "%d %B %Y, %H:%M")
   %td
-    = link_to attachment.attachment.url do
-      %i.icon-download
-      = t("common.download")
-    = link_to attachment_path(attachment), method: :delete, confirm: t("attachments.are_you_sure_delete") do
-      %i.icon-remove
-      = t("common.delete")
+    = link_to attachment.attachment.url, title: t("common.download") do
+      %i.fa.fa-download
+    = link_to attachment_path(attachment), title: t("common.delete"), method: :delete, confirm: t("attachments.are_you_sure_delete") do
+      %i.fa.fa-times

@@ -180,6 +180,11 @@ de:
         "Sich anmelden"
       sign_in:
         'Sich verbinden'
+  user:
+    role:
+      user: Benutzer
+      tech: Techniker
+      supervisor: Überwacher
   mailers:
     tickets:
       new_ticket: "[IT Abteilung] Neuen Ticket"

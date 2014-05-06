@@ -23,6 +23,5 @@
                 %th{style: "width:30%;"}= t("tickets.fields.title")
                 %th= t("tickets.fields.status")
                 %th= t("tickets.fields.emergency")
-                %th= t("common.actions")
             %tbody
               = render partial: "ticket_line", collection: @tickets, as: :ticket  

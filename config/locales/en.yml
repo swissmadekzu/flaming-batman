@@ -180,6 +180,11 @@ en:
         "Sign up"
       sign_in:
         'Sign in'
+  user:
+    role:
+      user: User
+      tech: Techie
+      supervisor: Supervisor
   mailers:
     tickets:
       new_ticket: "[IT Support] New ticket"

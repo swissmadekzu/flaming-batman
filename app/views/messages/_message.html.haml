@@ -1,0 +1,17 @@
+%div{id: "message#{message.id}", class: "modal fade", tabindex: -1, aria: {labelledby: "message_title#{message.id}", hidden: true}}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button{class: "close", data: {dismiss: "modal"}, aria: {hidden: true}} ×
+        %h3{id: "message_title#{message.id}", class: "modal-title thin"}= message.title
+      .modal-body
+        %p
+          %strong= t("messages.fields.from")
+          \:
+          = message.author.name
+        %p
+          %strong= t("common.date")
+          \:
+          = l(message.created_at, format: "%d %B %Y, %H:%M")
+        %hr
+        %p= simple_format message.body

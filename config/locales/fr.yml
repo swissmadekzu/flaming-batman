@@ -184,6 +184,11 @@ fr:
         "S'inscrire"
       sign_in:
         'Se connecter'
+  user:
+    role:
+      user: Utilisateur
+      tech: Technicien
+      supervisor: Superviseur
   mailers:
     tickets:
       new_ticket: "[Service IT] Nouveau ticket"

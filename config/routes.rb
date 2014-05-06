@@ -1,11 +1,7 @@
 Tickets::Application.routes.draw do
-
-  resource  :session, :controller => 'sessions', :only => [:new, :create, :destroy]
   
-  #get '/sign_in' => 'sessions#new'
-  #match '/sign_out' => 'sessions#destroy', :via => :delete 
+  root to: "tickets#index", filter: "new"
   
-  root to: "tickets#index"
   resources :tickets do
     collection do
       get 'tech'

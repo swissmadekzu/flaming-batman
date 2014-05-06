@@ -1,0 +1,28 @@
+%li  
+  = link_to edit_ticket_path(@ticket) do
+    %i.fa.fa-pencil
+      %span.overlay-label.orange
+    = t("tickets.edit_ticket")
+- if current_user.is_tech?
+  - if @ticket.status.title == "new"
+    %li
+      = link_to treat_ticket_path(@ticket), method: :post, class: "ink-button green" do
+        %i.fa.fa-cogs
+          %span.overlay-label.green
+        = t("tickets.treat_ticket")
+  - elsif @ticket.status.title == "open"
+    %li
+      = link_to end_treatment_ticket_path(@ticket), method: :post, class: "ink-button green" do
+        %i.fa.fa-ok-sign
+          %span.overlay-label.green
+        = t("tickets.close_ticket")
+%li
+  = link_to new_message_path(ticket_id: @ticket.id) do
+    %i.fa.fa-envelope
+      %span.overlay-label.orange
+    = t("messages.new_message")
+%li
+  = link_to new_attachment_path(ticket_id: @ticket.id) do
+    %i.fa.fa-paperclip
+      %span.overlay-label.orange
+    = t("attachments.new_attachment")

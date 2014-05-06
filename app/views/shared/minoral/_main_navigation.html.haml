@@ -10,15 +10,17 @@
     - else
       = render partial: "shared/minoral/user_navigation"
     = render partial: "shared/minoral/supervisor_navigation" if (current_user.is_tech? or current_user.is_supervisor?)
-  .user-controls
-    %ul
-      %li.dropdown
-        = link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do
-          %i.fa.fa-caret-down
-          = current_user.name
-        .profile-photo
-          = image_tag "images/arnold-avatar.jpg"
-        %ul.dropdown-menu.wide.arrow.green.nopadding
-          %li= link_to t("users.sign_out"), sign_out_path, :method => :delete
   %ul#navigation.nav.navbar-nav.side-nav
+    %li#user-status.user-status.status-online
+      .profile-photo
+        = image_tag("images/user.png")
+      .user
+        = current_user.name
+        %span.role= t("user.role.#{current_user.role}")
+    = yield :contextual_navigation
+    %li
+      = link_to sign_out_path, method: :delete do
+        %i.fa.fa-sign-out
+          %span.overlay-label.red
+        = t("users.sign_out")
         

@@ -6,11 +6,6 @@
   %td= ticket.author.try(:name)
   %td= l(ticket.created_at, format: "%d %B %Y, %H:%M")
   %td= t("categories.values.#{ticket.category.try(:title)}")
-  %td= ticket.title
+  %td= link_to ticket.title, ticket_path(ticket)
   %td= t("statuses.values.#{ticket.status.try(:title)}")
   %td{style: "color: ##{ticket.emergency.try(:color)}"}= t("emergencies.values.#{ticket.emergency.try(:title)}")
-  %td
-    = link_to ticket_path(ticket) do
-      %i.icon-eye-open
-    = link_to edit_ticket_path(ticket) do
-      %i.icon-pencil

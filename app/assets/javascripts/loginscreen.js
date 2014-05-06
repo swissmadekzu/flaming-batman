@@ -10,9 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery_ujs
 //= require minoral/bootstrap.min
 //= require minoral/plugins/jquery.nicescroll.min.js
 //= require minoral/plugins/blockui/jquery.blockUI.js
+//= require minoral/plugins/datatables/jquery.dataTables.min.js
+//= require minoral/plugins/datatables/dataTables.bootstrap.js
 //= require minoral/minoral.min
 //= require_self
 
