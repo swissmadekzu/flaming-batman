@@ -1,5 +1,13 @@
 ---
 de:
+  activerecord:
+    attributes:
+      ticket:
+        aasm_state:
+          new: "Neu"
+          open: "Offen"
+          pending: "Unbestätigten"
+          solved: "Gelöst"
   attachments:
     are_you_sure_delete: 'Sind Sie sicher dass Sie die Datei löschen wollen?'
     fields:
@@ -103,6 +111,13 @@ de:
     new_tickets: Neue Tickets
     open_tickets: Offene Tickets
     solved_tickets: Gelöste Tickets
+    awaiting_tickets: Unbestätigtene Tickets
+    no_awaiting_tickets: Kein unbestätigten Tickets
+    title_new: Neue Tickets
+    title_open: Offene Tickets
+    title_solved: Gelöste Tickets
+    title_invalid: Ungültige Tickets
+    title_pending: Unbestätigtene Tickets
     ticket: 'Ticket'
     tickets: Tickets
     tips:
