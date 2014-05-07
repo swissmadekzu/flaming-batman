@@ -16,25 +16,25 @@
                 .panel-heading
                   %h3.panel-title Nouveaux tickets
                 .panel-body
-                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "new")).count
+                  %h3.text-center= Ticket.where(aasm_state: "new").count
             .col-md-3
               .panel.panel-orange
                 .panel-heading
                   %h3.panel-title Tickets ouverts
                 .panel-body
-                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "open")).count
+                  %h3.text-center= Ticket.open.count
+            .col-md-3
+              .panel.panel-orange
+                .panel-heading
+                  %h3.panel-title Tickets en attente
+                .panel-body
+                  %h3.text-center= Ticket.pending.count
             .col-md-3
               .panel.panel-green
                 .panel-heading
                   %h3.panel-title Tickets résolus
                 .panel-body
-                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "solved")).count
-            .col-md-3
-              .panel.panel-red
-                .panel-heading
-                  %h3.panel-title Tickets invalides
-                .panel-body
-                  %h3.text-center= Ticket.where(status_id: Status.find_by(title: "invalid")).count
+                  %h3.text-center= Ticket.solved.count
   .row
     .col-md-12
       .tile

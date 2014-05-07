@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_layout
-    if current_user.nil?
+    if signed_out?
       self.class.layout "loginscreen"
     end
   end

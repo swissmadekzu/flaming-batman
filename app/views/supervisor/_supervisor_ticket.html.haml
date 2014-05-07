@@ -1,7 +1,7 @@
 %tr
   %td= link_to ticket.full_name, supervise_ticket_path(ticket)
   %td{style: "color: ##{ticket.emergency.try(:color)}"}= t("emergencies.values.#{ticket.emergency.try(:title)}")
-  %td= t("statuses.values.#{ticket.status.try(:title)}")
+  %td= ticket.aasm.human_state
   %td= l(ticket.created_at, format: "%d %B %Y, %H:%M")
   %td= l(ticket.treatment_date, format: "%d %B %Y, %H:%M") unless ticket.treatment_date.nil?
   %td= l(ticket.end_treatment_date, format: "%d %B %Y, %H:%M") unless ticket.end_treatment_date.nil?

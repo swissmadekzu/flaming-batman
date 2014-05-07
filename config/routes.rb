@@ -10,6 +10,8 @@ Tickets::Application.routes.draw do
     member do
       post "treat"
       post "end_treatment"
+      post "validate_solution"
+      post "reopen_ticket"
     end
   end
   resources :messages

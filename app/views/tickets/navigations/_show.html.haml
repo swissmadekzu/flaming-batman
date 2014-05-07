@@ -4,18 +4,30 @@
       %span.overlay-label.orange
     = t("tickets.edit_ticket")
 - if current_user.is_tech?
-  - if @ticket.status.title == "new"
+  - if @ticket.new? 
     %li
       = link_to treat_ticket_path(@ticket), method: :post, class: "ink-button green" do
         %i.fa.fa-cogs
           %span.overlay-label.green
         = t("tickets.treat_ticket")
-  - elsif @ticket.status.title == "open"
+  - elsif @ticket.open?
     %li
       = link_to end_treatment_ticket_path(@ticket), method: :post, class: "ink-button green" do
-        %i.fa.fa-ok-sign
+        %i.fa.fa-check
           %span.overlay-label.green
         = t("tickets.close_ticket")
+- else
+  - if @ticket.pending?
+    %li
+      = link_to validate_solution_ticket_path(@ticket), method: :post, class: "ink-button green" do
+        %i.fa.fa-check
+          %span.overlay-label.green
+        = t("tickets.accept_solution")
+    %li
+      = link_to reopen_ticket_ticket_path(@ticket), method: :post, class: "ink-button green" do
+        %i.fa.fa-reply
+          %span.overlay-label.red
+        = t("tickets.reopen_ticket")
 %li
   = link_to new_message_path(ticket_id: @ticket.id) do
     %i.fa.fa-envelope

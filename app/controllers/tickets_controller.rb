@@ -7,20 +7,22 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = case params[:filter]
-      when "new" then current_user.tickets.where(status_id: Status.find_by(title: "new"))
-      when "open" then current_user.tickets.where(status_id: Status.find_by(title: "open"))
-      when "solved" then current_user.tickets.where(status_id: Status.find_by(title: "solved"))
-      when "invalid" then current_user.tickets.where(status_id: Status.find_by(title: "invalid"))
-      else current_user.tickets.order("status_id ASC")
+      when "new" then current_user.tickets.where(is_invalid: false, aasm_state: "new")
+      when "open" then current_user.tickets.open.where(is_invalid: false)
+      when "pending" then current_user.tickets.pending.where(is_invalid: false)
+      when "solved" then current_user.tickets.solved.where(is_invalid: false)
+      when "invalid" then current_user.tickets.where(is_invalid: true)
+      else current_user.tickets.where(is_invalid: true)
     end
   end
 
   def tech
     @tickets = case params[:filter]
-      when "new" then Ticket.where(status_id: Status.find_by(title: "new"))
-      when "open" then current_user.work_tickets.where(status_id: Status.find_by(title: "open"))
-      when "solved" then Ticket.where(status_id: Status.find_by(title: "solved"))
-      when "invalid" then Ticket.where(status_id: Status.find_by(title: "invalid"))
+      when "new" then Ticket.where(is_invalid: false, aasm_state: "new")
+      when "open" then Ticket.open.where(is_invalid: false)
+      when "pending" then Ticket.pending.where(is_invalid: false)
+      when "solved" then Ticket.solved.where(is_invalid: false)
+      when "invalid" then Ticket.where(is_invalid: true)
       else Ticket.order("status_id ASC")
     end
   end
@@ -89,21 +91,47 @@ class TicketsController < ApplicationController
 
   def treat
     @ticket = Ticket.find(params[:id])
-    @ticket.update_attributes(status: Status.find_by(title: "open"), treatment_date: DateTime.now.utc, tech_id: current_user.id)
-    TicketMailer.ticket_open(@ticket).deliver
+    if @ticket.may_open_ticket?
+      @ticket.open_ticket
+      @ticket.save
+      #@ticket.update_attributes(status: Status.find_by(title: "open"), treatment_date: DateTime.now.utc, tech_id: current_user.id)
+      TicketMailer.ticket_open(@ticket).deliver
+    end
     redirect_to ticket_path(@ticket)
   end
 
   def end_treatment
     @ticket = Ticket.find(params[:id])
-    @ticket.update_attributes(status: Status.find_by(title: "solved"), end_treatment_date: DateTime.now.utc)
-    TicketMailer.ticket_closed(@ticket).deliver
+    if @ticket.may_wait_for_validation?
+      @ticket.wait_for_validation
+      @ticket.save
+      #@ticket.update_attributes(status: Status.find_by(title: "solved"), end_treatment_date: DateTime.now.utc)
+      TicketMailer.ticket_closed(@ticket).deliver
+    end
+    redirect_to ticket_path(@ticket)
+  end
+  
+  def reopen_ticket
+    @ticket = Ticket.find(params[:id])
+    if @ticket.may_reopen?
+      @ticket.reopen
+      @ticket.save
+    end
+    redirect_to ticket_path(@ticket)
+  end      
+        
+  def validate_solution
+    @ticket = Ticket.find(params[:id])
+    if @ticket.may_validate?
+      @ticket.validate
+      @ticket.save
+    end
     redirect_to ticket_path(@ticket)
   end
 
   private
   def ticket_params
-    params.required(:ticket).permit(:author_id, :tech_id, :title, :description, :treatment_date, :end_treatment_date, :status_id, :emergency_id, :category_id)
+    params.required(:ticket).permit(:author_id, :tech_id, :title, :description, :treatment_date, :end_treatment_date, :status_id, :emergency_id, :category_id, :is_invalid, :stupid)
   end
 
   def require_tech

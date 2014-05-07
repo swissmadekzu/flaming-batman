@@ -1,3 +1,27 @@
+%li.dropdown.quick-action.notifications
+  = link_to "#", class: "dropdown-toggle button", data: {toggle: "dropdown"} do
+    %i.fa.fa-file
+    - if Ticket.where(aasm_state: :new).count > 0
+      %span.overlay-label.red= Ticket.where(aasm_state: :new).count
+  %ul.dropdown-menu.wide.arrow.orange.nopadding
+    %li
+      - if Ticket.where(aasm_state: :new).count > 0
+        %h1= t("tickets.new_tickets")
+      - else
+        %h1= t("tickets.no_new_tickets")
+    = render partial: "tickets/navigations/nav_ticket", collection: Ticket.where(aasm_state: :new), as: :ticket
+%li.dropdown.quick-action.notifications
+  = link_to "#", class: "dropdown-toggle button", data: {toggle: "dropdown"} do
+    %i.fa.fa-file-text-o
+    - if Ticket.open.count > 0
+      %span.overlay-label.red= Ticket.open.count
+  %ul.dropdown-menu.wide.arrow.red.nopadding
+    %li
+      - if Ticket.open.count > 0
+        %h1= t("tickets.open_tickets")
+      - else
+        %h1= t("tickets.no_open_tickets")
+    = render partial: "tickets/navigations/nav_ticket", collection: Ticket.open, as: :ticket
 %li.dropdown
   = link_to "#", class: "dropdown-toggle", data: {toggle: "dropdown"} do
     %i.fa.fa-tasks
@@ -6,5 +30,6 @@
   %ul.dropdown-menu.wide.arrow.green.nopadding
     %li= link_to t("tickets.new_tickets"), tech_tickets_path(filter: "new")
     %li= link_to t("tickets.open_tickets"), tech_tickets_path(filter: "open")
+    %li= link_to t("tickets.pending_tickets"), tech_tickets_path(filter: "pending")
     %li= link_to t("tickets.solved_tickets"), tech_tickets_path(filter: "solved")
     %li= link_to t("tickets.invalid_tickets"), tech_tickets_path(filter: "invalid")

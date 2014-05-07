@@ -40,6 +40,8 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'i18n-tasks', '~> 0.2.10'
 gem 'carrierwave'
 
+# Status using aasm
+gem 'aasm'
 
 
 # Use ActiveModel has_secure_password

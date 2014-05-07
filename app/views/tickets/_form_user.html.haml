@@ -1,4 +1,5 @@
 = form.hidden_field :status_id, value: @ticket.status_id.nil? ? 1 : @ticket.status_id
+= form.hidden_field :is_invalid, value: @ticket.is_invalid.nil? ? false : @ticket.is_invalid
 
 .form-group
   =label_tag nil, t("tickets.fields.status"), class: "col-sm-2 control-label"

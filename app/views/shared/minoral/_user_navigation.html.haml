@@ -1,3 +1,15 @@
+%li.dropdown.quick-action.notifications
+  = link_to "#", class: "dropdown-toggle button", data: {toggle: "dropdown"} do
+    %i.fa.fa-bell
+    - if current_user.tickets.pending.count > 0
+      %span.overlay-label.red= current_user.tickets.pending.count
+  %ul.dropdown-menu.wide.arrow.red.nopadding
+    %li
+      - if current_user.tickets.pending.count > 0
+        %h1= t("tickets.awaiting_tickets")
+      - else
+        %h1= t("tickets.no_awaiting_tickets")
+    = render partial: "tickets/navigations/nav_ticket", collection: current_user.tickets.pending, as: :ticket
 %li
   = link_to new_ticket_path do
     %i.fa.fa-plus
@@ -10,5 +22,7 @@
   %ul.dropdown-menu.wide
     %li= link_to t("tickets.new_tickets"), tickets_path(filter: "new")
     %li= link_to t("tickets.open_tickets"), tickets_path(filter: "open")
+    %li= link_to t("tickets.pending_tickets"), tickets_path(filter: "pending")
     %li= link_to t("tickets.solved_tickets"), tickets_path(filter: "solved")
     %li= link_to t("tickets.invalid_tickets"), tickets_path(filter: "invalid")
+        

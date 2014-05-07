@@ -1,5 +1,13 @@
 ---
 fr:
+  activerecord:
+    attributes:
+      ticket:
+        aasm_state:
+          new: "Nouveau"
+          open: "Ouvert"
+          pending: "Validation attendue"
+          solved: "Résolu"
   attachments:
     are_you_sure_delete: Êtes-vous sûr de vouloir supprimer ce fichier ?
     fields:
@@ -101,8 +109,13 @@ fr:
     my_tickets: Mes tickets
     new_ticket: Nouveau ticket
     new_tickets: Nouveaux tickets
+    no_new_tickets: Aucun nouveau ticket
     open_tickets: Tickets ouverts
+    no_open_tickets: Aucun ticket ouvert
     solved_tickets: Tickets résolus
+    pending_tickets: Tickets en attente
+    awaiting_tickets: Tickets en attente de validation
+    no_awaiting_tickets: Aucun ticket en attente
     ticket: 'Ticket'
     tickets: Tickets
     tips:
@@ -114,6 +127,9 @@ fr:
     title_open: Tickets ouverts
     title_solved: Tickets résolus
     title_invalid: Tickets invalides
+    title_pending: Tickets en attente de validation
+    reopen_ticket: Le problème n'est pas résolu
+    accept_solution: Le problème est résolu
     treat_ticket: 'Ouvrir le ticket'
   clearance_mailer:
     change_password:
