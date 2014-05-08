@@ -4,7 +4,7 @@
     - if ticket.stupid?
       %i.icon-beer
   %td= ticket.author.try(:name)
-  %td= l(ticket.created_at, format: "%d %B %Y, %H:%M")
+  %td= l(ticket.created_at.utc, format: "%d %B %Y, %H:%M")
   %td= t("categories.values.#{ticket.category.try(:title)}")
   %td= link_to ticket.title, ticket_path(ticket)
   %td= ticket.aasm.human_state

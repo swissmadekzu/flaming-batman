@@ -12,6 +12,6 @@
         %p
           %strong= t("common.date")
           \:
-          = l(message.created_at, format: "%d %B %Y, %H:%M")
+          = l(message.created_at.utc, format: "%d %B %Y, %H:%M")
         %hr
         %p= simple_format message.body

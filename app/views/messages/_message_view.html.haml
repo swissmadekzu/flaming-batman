@@ -1,4 +1,4 @@
 %tr
-  %td= l(message.created_at, format: "%d %B %Y, %H:%M")
+  %td= l(message.created_at.utc, format: "%d %B %Y, %H:%M")
   %td= message.author.name
   %td= link_to message.title, "#message#{message.id}", data: {toggle: "modal"}
