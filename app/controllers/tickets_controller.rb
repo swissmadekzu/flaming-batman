@@ -93,6 +93,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     if @ticket.may_open_ticket?
       @ticket.open_ticket
+      @ticket.treatment_date = DateTime.now.utc
       @ticket.save
       #@ticket.update_attributes(status: Status.find_by(title: "open"), treatment_date: DateTime.now.utc, tech_id: current_user.id)
       TicketMailer.ticket_open(@ticket).deliver
@@ -124,6 +125,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     if @ticket.may_validate?
       @ticket.validate
+      @ticket.end_treatment_date = DateTime.now.utc
       @ticket.save
     end
     redirect_to ticket_path(@ticket)
