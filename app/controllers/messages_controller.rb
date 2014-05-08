@@ -16,6 +16,7 @@ class MessagesController < TicketsDependencyController
       flash[:notice] = t("flash_messages.messages.created_successfully")
       TicketMailer.ticket_message(@message.ticket).deliver
       redirect_to ticket_path(@message.ticket)
+      @message.log_entries.create(user_id: current_user.id, ticket_id: @message.ticket.id, textmodel: "message_created")
     else
       flash[:error] = t("flash_messages.messages.error_creation")
       render action: :new

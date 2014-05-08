@@ -1,0 +1,7 @@
+%ul.list-inline
+  %li
+    %i{class: "fa fa-file", style: "color:teal;"}
+  %li
+    %span{style:"color: #0B3861;"}= log_entry.user.name
+    a créé le ticket le
+    %span{style:"color: black;"}= l(log_entry.created_at, format: "%d %B %Y à %H:%M")

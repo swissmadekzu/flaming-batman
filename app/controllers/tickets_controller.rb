@@ -46,6 +46,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
+      @ticket.log_entries.create(user_id: current_user.id, textmodel: "ticket_created")
       flash[:notice] = t("flash_messages.tickets.created_successfully")
       TicketMailer.ticket_created(@ticket).deliver
       redirect_to ticket_path(@ticket)
@@ -71,6 +72,7 @@ class TicketsController < ApplicationController
       @ticket = current_user.tickets.find(params[:id])
     end
     if @ticket.update_attributes(ticket_params)
+      @ticket.log_entries.create(user_id: current_user.id, textmodel: "ticket_updated")
       flash[:notice] = t("flash_messages.tickets.updated_successfully")
       redirect_to ticket_path(@ticket)
     else
@@ -100,6 +102,7 @@ class TicketsController < ApplicationController
       @ticket.open_ticket
       @ticket.treatment_date = DateTime.now.utc
       @ticket.save
+      @ticket.log_entries.create(user_id: current_user.id, textmodel: "ticket_treated")
       #@ticket.update_attributes(status: Status.find_by(title: "open"), treatment_date: DateTime.now.utc, tech_id: current_user.id)
       TicketMailer.ticket_open(@ticket).deliver
     end
@@ -111,6 +114,7 @@ class TicketsController < ApplicationController
     if @ticket.may_wait_for_validation?
       @ticket.wait_for_validation
       @ticket.save
+      @ticket.log_entries.create(user_id: current_user.id, textmodel: "ticket_marked_for_validation")
       #@ticket.update_attributes(status: Status.find_by(title: "solved"), end_treatment_date: DateTime.now.utc)
       TicketMailer.ticket_closed(@ticket).deliver
     end
@@ -122,6 +126,7 @@ class TicketsController < ApplicationController
     if @ticket.may_reopen?
       @ticket.reopen
       @ticket.save
+      @ticket.log_entries.create(user_id: current_user.id, textmodel: "ticket_reopened")
     end
     redirect_to ticket_path(@ticket)
   end      
@@ -132,6 +137,7 @@ class TicketsController < ApplicationController
       @ticket.validate
       @ticket.end_treatment_date = DateTime.now.utc
       @ticket.save
+      @ticket.log_entries.create(user_id: current_user.id, textmodel: "ticket_closed")
     end
     redirect_to ticket_path(@ticket)
   end

@@ -1,0 +1,9 @@
+%ul.list-inline
+  %li
+    %i{class: "fa fa-envelope", style: "color:#088A4B;"}
+  %li
+    %span{style:"color: #0B3861;"}= log_entry.user.name
+    a publié le message
+    %span{style:"color: navy;"}= log_entry.message.title
+    le
+    %span{style:"color: black;"}= l(log_entry.created_at, format: "%d %B %Y à %H:%M")

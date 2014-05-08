@@ -13,6 +13,7 @@ class AttachmentsController < TicketsDependencyController
     @attachment = Attachment.new(attachment_params)
     if @attachment.save
       flash[:notice] = t("flash_messages.attachments.created_successfully")
+      @attachment.log_entries.create(user_id: current_user.id, ticket_id: @attachment.ticket.id, textmodel: "attachment_created")
       redirect_to ticket_path(@attachment.ticket)
     else
       flash[:error] = t("flash_messages.attachments.error_creation")

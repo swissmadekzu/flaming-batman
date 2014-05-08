@@ -1,0 +1,14 @@
+%ul.list-inline
+  %li
+    %i{class: "fa fa-paperclip", style: "color:#088A4B;"}
+  %li
+    %span{style:"color: #0B3861;"}= log_entry.user.name
+    - if log_entry.attachment.nil?
+      a mis en ligne une pièce jointe
+    - else
+      a mis en ligne la pièce jointe
+      %span{style:"color: navy;"}= log_entry.attachment.attachment.url.split('/').last
+    le
+    %span{style:"color: black;"}= l(log_entry.created_at, format: "%d %B %Y à %H:%M")
+    - if log_entry.attachment.nil?
+      mais celle-ci a été supprimée

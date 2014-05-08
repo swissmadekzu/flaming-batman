@@ -9,6 +9,7 @@ class Ticket < ActiveRecord::Base
 
   has_many :messages
   has_many :attachments
+  has_many :log_entries
   
   def full_name
     "[##{id}] #{title}"

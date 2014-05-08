@@ -6,7 +6,13 @@
     %li= link_to "Superviseur", supervisor_dashboard_path
     %li.active
       = "[##{@ticket.id}] #{@ticket.title}"
-
+.submenu
+  %h1 Ticket
+  %ul.nav.nav-tabs
+    %li.active
+      = link_to "Informations", supervise_ticket_path(@ticket)
+    %li
+      = link_to "Journal d'événements", supervise_logs_path(@ticket)
 .main
   .row
     .col-md-12

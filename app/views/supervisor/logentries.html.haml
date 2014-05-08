@@ -1,0 +1,27 @@
+= content_for :contextual_navigation do
+  = render partial: "supervisor/navigations/show"
+
+.breadcrumbs
+  %ol.breadcrumb
+    %li= link_to "Superviseur", supervisor_dashboard_path
+    %li.active
+      = "[##{@ticket.id}] #{@ticket.title}"
+.submenu
+  %h1 Ticket
+  %ul.nav.nav-tabs
+    %li
+      = link_to "Informations", supervise_ticket_path(@ticket)
+    %li.active
+      = link_to "Journal d'événements", supervise_logs_path(@ticket)
+.main
+  .row
+    .col-md-12
+      .tile.cornered
+        .tile-header
+          %h1= "Journal d'événements"
+        .tile-body
+          .row
+            .col-md-12
+              %ul.list-group
+                = render partial: "supervisor/logs/log_general", collection: @ticket.log_entries, as: :log_entry
+                

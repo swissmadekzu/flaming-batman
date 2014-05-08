@@ -19,5 +19,6 @@ Tickets::Application.routes.draw do
   
   get 'supervisor' => "supervisor#index", as: :supervisor_dashboard
   get 'supervisor/:id' => "supervisor#supervise", as: :supervise_ticket
+  get 'supervisor/:id/logs' => "supervisor#logentries", as: :supervise_logs
 
 end
