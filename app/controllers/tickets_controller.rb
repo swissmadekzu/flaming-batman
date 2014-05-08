@@ -101,6 +101,7 @@ class TicketsController < ApplicationController
     if @ticket.may_open_ticket?
       @ticket.open_ticket
       @ticket.treatment_date = DateTime.now.utc
+      @ticket.tech_id = current_user.id
       @ticket.save
       @ticket.log_entries.create(user_id: current_user.id, textmodel: "ticket_treated")
       #@ticket.update_attributes(status: Status.find_by(title: "open"), treatment_date: DateTime.now.utc, tech_id: current_user.id)

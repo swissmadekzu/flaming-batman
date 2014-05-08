@@ -19,6 +19,11 @@
               %ul.list-group
                 %li.list-group-item
                   %strong
+                    = t("tickets.fields.author")
+                    \:
+                  = @ticket.author.name
+                %li.list-group-item
+                  %strong
                     = t("tickets.fields.emergency")
                     \:
                   %span{style: "color: ##{@ticket.emergency.color};"}= t("emergencies.values.#{@ticket.emergency.title}")
@@ -35,6 +40,11 @@
                   
             .col-md-6
               %ul.list-group
+                %li.list-group-item
+                  %strong
+                    = t("tickets.fields.treated_by")
+                    \:
+                  = @ticket.tech.name unless @ticket.tech.nil?
                 %li.list-group-item
                   %strong
                     = t("tickets.fields.date")

@@ -6,4 +6,4 @@
     a publié le message
     %span{style:"color: navy;"}= log_entry.message.title
     le
-    %span{style:"color: black;"}= l(log_entry.created_at, format: "%d %B %Y à %H:%M")
+    %span{style:"color: black;"}= l(log_entry.created_at.utc, format: "%d %B %Y à %H:%M")

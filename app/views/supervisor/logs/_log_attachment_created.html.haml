@@ -9,6 +9,6 @@
       a mis en ligne la pièce jointe
       %span{style:"color: navy;"}= log_entry.attachment.attachment.url.split('/').last
     le
-    %span{style:"color: black;"}= l(log_entry.created_at, format: "%d %B %Y à %H:%M")
+    %span{style:"color: black;"}= l(log_entry.created_at.utc, format: "%d %B %Y à %H:%M")
     - if log_entry.attachment.nil?
       mais celle-ci a été supprimée

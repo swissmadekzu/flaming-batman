@@ -4,4 +4,4 @@
   %li
     %span{style:"color: #0B3861;"}= log_entry.user.name
     a réouvert le ticket le
-    %span{style:"color: black;"}= l(log_entry.created_at, format: "%d %B %Y à %H:%M")
+    %span{style:"color: black;"}= l(log_entry.created_at.utc, format: "%d %B %Y à %H:%M")
