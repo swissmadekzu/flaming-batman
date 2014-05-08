@@ -1,6 +1,9 @@
 #clearance.sign-in.welcome
   = image_tag "images/logo-big.png"
-  %h1 TicketManager
+  %h1
+    %strong MMS
+    %span.divider.vertical
+    IT Support
   %h5= t 'authentication.title'
 
   = render :partial => '/sessions/form'

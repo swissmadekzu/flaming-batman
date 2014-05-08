@@ -6,6 +6,7 @@ class MessagesController < TicketsDependencyController
   before_action :authorize_from_message, only: :destroy
 
   def new
+    @title = t("messages.new_message")
     @message = @ticket.messages.new(author: current_user)
   end
 

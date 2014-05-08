@@ -5,11 +5,13 @@ class SupervisorController < ApplicationController
   before_action :check_supervisor
   
   def index
+    @title = "Superviseur"
     @tickets = Ticket.all  
   end
   
   def supervise
     @ticket = Ticket.find(params[:id])
+    @title = @ticket.full_name + " | Superviseur"
   end
   
   private

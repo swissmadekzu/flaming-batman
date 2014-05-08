@@ -5,6 +5,7 @@ class AttachmentsController < TicketsDependencyController
   before_action :authorize_from_ticket, only: :new
 
   def new
+    @title = t("attachments.new_attachment")
     @attachment = @ticket.attachments.new
   end
 
