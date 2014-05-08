@@ -1,9 +1,9 @@
 .navbar.navbar-default.navbar-fixed-top{role: "navigation"}
   .navbar-header.col-md-2
     = link_to root_path, class: "navbar-brand" do
-      %strong TICKET
+      %strong MMS
       %span.divider.vertical
-      MANAGER
+      IT SUPPORT
   %ul.nav.navbar-nav
     - if current_user.is_tech?
       = render partial: "shared/minoral/tech_navigation"

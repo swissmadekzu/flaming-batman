@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
   before_action :require_tech, only: [:treat, :end_treatment]
 
   def index
+    @title = t("tickets.my_tickets")
     @tickets = case params[:filter]
       when "new" then current_user.tickets.where(is_invalid: false, aasm_state: "new")
       when "open" then current_user.tickets.open.where(is_invalid: false)
@@ -17,6 +18,7 @@ class TicketsController < ApplicationController
   end
 
   def tech
+    @title = t("tickets.my_tickets")
     @tickets = case params[:filter]
       when "new" then Ticket.where(is_invalid: false, aasm_state: "new")
       when "open" then Ticket.open.where(is_invalid: false)
@@ -33,10 +35,12 @@ class TicketsController < ApplicationController
     else
       @ticket = current_user.tickets.find(params[:id])
     end
+    @title = @ticket.full_name
   end
 
   def new
     @ticket = current_user.tickets.new
+    @title = t("tickets.new_ticket")
   end
 
   def create
@@ -57,6 +61,7 @@ class TicketsController < ApplicationController
     else
       @ticket = current_user.tickets.find(params[:id])
     end
+    @title = t("tickets.edit_ticket")
   end
 
   def update
