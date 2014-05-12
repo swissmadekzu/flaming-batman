@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
   end
   
   def set_layout
-    if signed_out?
+    if signed_in?
+      self.class.layout "minoral"
+    else
       self.class.layout "loginscreen"
     end
   end
