@@ -19,11 +19,22 @@
               .col-md-8
                 .input-group
                   %span.input-group-btn
-                    %span.btn.btn-file
+                    %span.btn.btn-default.btn-file
                       = t("common.browse")
                       = form.file_field :attachment
                     = text_field_tag nil, nil, readonly: true, class: "form-control"
             .form-group.form-footer
               .col-sm-offset-2.col-sm-10
-                = form.submit t("attachments.fields.upload_attachment"), class: "btn btn-greensea"
+                = form.submit t("attachments.fields.upload_attachment"), class: "btn btn-greensea", id: "submitbutton", disabled: true
                 = link_to t("common.back"), :back, class: "btn btn-default"
+
+%script{type: "text/javascript"}
+  $(document).ready(function(){
+    $("#attachment_attachment").change(function() {
+      if($("#attachment_attachment").val() != null) {
+        $("#submitbutton").removeAttr("disabled")
+      } else {
+        $("#submitbutton").attr('disabled','disabled');
+      }
+    });
+  });
