@@ -22,6 +22,6 @@ Tickets::Application.routes.draw do
   get 'supervisor/:id/logs' => "supervisor#logentries", as: :supervise_logs
 
   get 'api/tickets/new' => "api/tickets#new"
-  get 'api/tickets/new' => "api/tickets#open"
+  get 'api/tickets/open' => "api/tickets#open"
   
 end
